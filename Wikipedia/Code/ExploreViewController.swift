@@ -1,6 +1,7 @@
 import UIKit
 import WMF
 import CocoaLumberjackSwift
+import Components
 
 class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewControllerDelegate, UISearchBarDelegate, CollectionViewUpdaterDelegate, ImageScaleTransitionProviding, DetailTransitionSourceProviding, MEPEventsProviding {
 
@@ -64,6 +65,27 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
         detailTransitionSourceRect = nil
         logFeedImpressionAfterDelay()
         dataStore.remoteNotificationsController.loadNotifications(force: false)
+        
+        presentWatchlist()
+    }
+    
+    private func presentWatchlist() {
+        let fetcher = WatchlistFetcher()
+        let appLanguages = dataStore.languageLinkController.preferredLanguages.map { $0.siteURL }
+        var wikidataURL: URL?
+        var commonsURL: URL?
+        
+        if let wikidataHost = Configuration.current.wikidataAPIURLComponents(with: nil).host, let commonsHost = Configuration.current.commonsAPIURLComponents(with: nil).host {
+            wikidataURL = NSURL.wmf_URL(withDomain: wikidataHost, languageCode: nil)
+            commonsURL = NSURL.wmf_URL(withDomain: commonsHost, languageCode: nil)
+        }
+        
+        let urls: [[URL?]] = [appLanguages, [wikidataURL], [commonsURL]]
+        let finalURLS = urls.flatMap { $0 }.compactMap { $0 }
+        
+        let viewModel = WatchlistViewModel(siteURLs: finalURLS, fetcher: fetcher)
+        let viewController = WatchlistViewController(viewModel: viewModel)
+        present(viewController, animated: true)
     }
     
     override func viewWillHaveFirstAppearance(_ animated: Bool) {
