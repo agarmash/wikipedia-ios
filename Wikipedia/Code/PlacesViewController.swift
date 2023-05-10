@@ -1259,10 +1259,6 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
     
     func merge(group: ArticleGroup, key: String, groups: [String: ArticleGroup], groupingDistance: CLLocationDistance) -> Set<String> {
         var toMerge = Set<String>()
-        if let keyToSelect = articleKeyToSelect, group.articles.first?.key == keyToSelect {
-            // no grouping with the article to select
-            return toMerge
-        }
         
         let baseQuadKey = group.baseQuadKey
         let baseQuadKeyPrecision = group.baseQuadKeyPrecision
@@ -1305,16 +1301,13 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
     }
     
     func regroupArticlesIfNecessary(forVisibleRegion visibleRegion: MKCoordinateRegion) {
-        guard groupingTaskGroup == nil else {
-            needsRegroup = true
-            return
-        }
-        assert(Thread.isMainThread)
-        
+
         guard let searchRegion = currentSearchRegion else {
             return
         }
         
+        // TS - searchRegion = the map area encompassing all the annotations (dots)
+        // TS - visibleRegion = the visible area of the entire map. visibleRegion could be much larger or smaller than searchRegion if user zooms in/out and doesn't perform a search to update the dots.
         let deltaLon = visibleRegion.span.longitudeDelta
         let lowestPrecision = QuadKeyPrecision(deltaLongitude: deltaLon)
         let searchDeltaLon = searchRegion.span.longitudeDelta
@@ -1328,13 +1321,6 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
         }
         let currentPrecision = lowestPrecision + groupingPrecisionDelta
         let groupingPrecision = min(maxPrecision, currentPrecision)
-
-        guard groupingPrecision != currentGroupingPrecision else {
-            return
-        }
-        
-        let taskGroup = WMFTaskGroup()
-        groupingTaskGroup = taskGroup
         
         let groupingDeltaLatitude = groupingPrecision.deltaLatitude
         let groupingDeltaLongitude = groupingPrecision.deltaLongitude
@@ -1366,6 +1352,8 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
         
         var groups: [String: ArticleGroup] = [:]
         var splittableGroups: [String: ArticleGroup] = [:]
+        
+        // TS - articleFetchedResultsController?.fetchedObjects = the current search results articles, fetched from the database.
         for article in articleFetchedResultsController?.fetchedObjects ?? [] {
             guard let quadKey = article.quadKey else {
                 continue
@@ -1373,7 +1361,7 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
             var group: ArticleGroup
             let adjustedQuadKey: QuadKey
             var key: String
-            if groupingPrecision < maxPrecision && (articleKeyToSelect == nil || article.key != articleKeyToSelect) {
+            if groupingPrecision < maxPrecision {
                 adjustedQuadKey = quadKey.adjusted(downBy: QuadKeyPrecision.maxPrecision - groupingPrecision)
                 let baseQuadKey = adjustedQuadKey - adjustedQuadKey % 2
                 key = "\(baseQuadKey)|\(baseQuadKey + 1)" // combine neighboring vertical keys
@@ -1413,7 +1401,6 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
                 }
             }
         }
-        
         
         for (key, group) in splittableGroups {
             for (index, article) in group.articles.enumerated() {
@@ -1485,8 +1472,6 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
                     }
                     
                     let placeView = mapView.view(for: previousPlace)
-                    taskGroup.enter()
-                    self.countOfAnimatingAnnotations += 1
                     UIView.animate(withDuration:animationDuration, delay: 0, options: [.allowUserInteraction], animations: {
                         placeView?.alpha = 0
                         if previousPlace.articles.count > 1 {
@@ -1494,13 +1479,10 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
                         }
                         previousPlace.coordinate = coordinate
                     }, completion: { (finished) in
-                        taskGroup.leave()
                         self.mapView.removeAnnotation(previousPlace)
-                        self.countOfAnimatingAnnotations -= 1
                     })
                 }
             }
-
             
             guard let place = ArticlePlace(coordinate: coordinate, nextCoordinate: nextCoordinate, articles: group.articles, identifier: identifier) else {
                 continue
@@ -1513,28 +1495,15 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
         
         for (_, annotation) in annotationsToRemove {
             let placeView = mapView.view(for: annotation)
-            taskGroup.enter()
-            self.countOfAnimatingAnnotations += 1
             UIView.animate(withDuration: 0.5*animationDuration, animations: {
                 placeView?.transform = CGAffineTransform(scaleX: self.animationScale, y: self.animationScale)
                 placeView?.alpha = 0
             }, completion: { (finished) in
-                taskGroup.leave()
                 self.mapView.removeAnnotation(annotation)
-                self.countOfAnimatingAnnotations -= 1
             })
         }
-        currentGroupingPrecision = groupingPrecision
         if greaterThanOneArticleGroupCount > 0 {
             set(shouldShowAllImages: false)
-        }
-        taskGroup.waitInBackground {
-            self.groupingTaskGroup = nil
-            self.selectVisibleKeyToSelectIfNecessary()
-            if self.needsRegroup {
-                self.needsRegroup = false
-                self.regroupArticlesIfNecessary(forVisibleRegion: self.mapRegion ?? self.mapView.region)
-            }
         }
     }
     
