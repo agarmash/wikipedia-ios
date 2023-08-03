@@ -1,6 +1,7 @@
 import UIKit
 import SwiftUI
 import WMF
+import Components
 
 @objc(WMFAccountViewControllerDelegate)
 protocol AccountViewControllerDelegate: AnyObject {
@@ -12,6 +13,7 @@ private enum ItemType {
     case talkPage
     case talkPageAutoSignDiscussions
     case vanishAccount
+    case watchlist
 }
 
 private struct Section {
@@ -45,7 +47,9 @@ class AccountViewController: SubSettingsViewController {
         let logout = Item(title: username, subtitle: CommonStrings.logoutTitle, iconName: "settings-user", iconColor: .white, iconBackgroundColor: UIColor.orange600, type: .logout)
         let talkPage = Item(title: WMFLocalizedString("account-talk-page-title", value: "Your talk page", comment: "Title for button and page letting user view their account page."), subtitle: nil, iconName: "settings-talk-page", iconColor: .white, iconBackgroundColor: .blue600 , type: .talkPage)
         let vanishAccount = Item(title: CommonStrings.vanishAccount, subtitle: nil, iconName: "vanish-account", iconColor: .white, iconBackgroundColor: .red, type: .vanishAccount)
-        let account = Section(items: [logout, talkPage, vanishAccount], headerTitle: WMFLocalizedString("account-group-title", value: "Your Account", comment: "Title for account group on account settings screen."), footerTitle: nil)
+
+        let watchlist = Item(title: "Watchlist onboarding", subtitle: nil, iconName: "settings-user", iconColor: UIColor.green600, iconBackgroundColor: UIColor.orange600, type: .watchlist)
+        let account = Section(items: [logout, talkPage, vanishAccount, watchlist], headerTitle: WMFLocalizedString("account-group-title", value: "Your Account", comment: "Title for account group on account settings screen."), footerTitle: nil)
 
         let autoSignDiscussions = Item(title: WMFLocalizedString("account-talk-preferences-auto-sign-discussions", value: "Auto-sign discussions", comment: "Title for talk page preference that configures adding signature to new posts"), subtitle: nil, iconName: nil, iconColor: nil, iconBackgroundColor: nil, type: .talkPageAutoSignDiscussions)
         let talkPagePreferences = Section(items: [autoSignDiscussions], headerTitle: WMFLocalizedString("account-talk-preferences-title", value: "Talk page preferences", comment: "Title for talk page preference sections in account settings"), footerTitle: WMFLocalizedString("account-talk-preferences-auto-sign-discussions-setting-explanation", value: "Auto-signing of discussions will use the signature defined in Signature settings", comment: "Text explaining how setting the auto-signing of talk page discussions preference works"))
@@ -101,6 +105,8 @@ class AccountViewController: SubSettingsViewController {
         case .vanishAccount:
             cell.disclosureType = .viewController
             cell.accessibilityTraits = .button
+        case .watchlist:
+            cell.disclosureType = .viewController
         }
         
         cell.apply(theme)
@@ -139,6 +145,11 @@ class AccountViewController: SubSettingsViewController {
             let warningViewController = VanishAccountWarningViewHostingViewController(theme: theme)
             warningViewController.delegate = self
             present(warningViewController, animated: true)
+
+        case .watchlist:
+            let viewController = WKOnboardingViewController()
+            present(viewController, animated: true)
+
         default:
             break
         }
