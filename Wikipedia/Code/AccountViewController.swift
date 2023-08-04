@@ -147,7 +147,13 @@ class AccountViewController: SubSettingsViewController {
             present(warningViewController, animated: true)
 
         case .watchlist:
-            let viewController = WKOnboardingViewController()
+            let cell1 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: "pencil.circle.fill", title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
+            let cell2 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: "star.leadinghalf.filled", title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
+            let cell3 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: "person", title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
+
+            let vm = WKOnboardingViewModel(title: "Introducing  your Watchlist", cells: [cell1, cell2, cell3])
+
+            let viewController = WKOnboardingViewController(viewModel: vm)
             present(viewController, animated: true)
 
         default:
