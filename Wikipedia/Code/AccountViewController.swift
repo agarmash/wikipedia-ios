@@ -147,13 +147,18 @@ class AccountViewController: SubSettingsViewController {
             present(warningViewController, animated: true)
 
         case .watchlist:
-            let cell1 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: "pencil.circle.fill", title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
-            let cell2 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: "star.leadinghalf.filled", title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
-            let cell3 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: "person", title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
+            let cell1 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: UIImage(named: "set-expiration"), title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
+            let cell2 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: UIImage(named: "set-expiration"), title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
+            let cell3 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: UIImage(named: "set-expiration"), title: "Title title", subtitle: "The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in The Watchlist is a tool that lets you keep track of changes made to pages or articles you're interested in")
 
-            let vm = WKOnboardingViewModel(title: "Introducing  your Watchlist", cells: [cell1, cell2, cell3])
+            let cell4 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: UIImage(named: "set-expiration"), title: "Title title", subtitle: "Ok")
+            let cell5 = WKOnboardingViewModel.WKOnboardingCellViewModel(icon: nil, title: "Title title", subtitle: "ok")
+
+            let vm = WKOnboardingViewModel(title: "Introducing your Watchlist", cells: [cell1, cell2, cell3, cell4, cell5], mainButtonTitle: "Main button", secondaryButtonTitle: "Sec button click me")
 
             let viewController = WKOnboardingViewController(viewModel: vm)
+            viewController.hostingController.delegate = self
+            
             present(viewController, animated: true)
 
         default:
@@ -223,6 +228,27 @@ extension AccountViewController: VanishAccountWarningViewDelegate {
 
         let viewController = VanishAccountContainerViewController(title: CommonStrings.vanishAccount.localizedCapitalized, theme: theme, username: username)
         navigationController?.pushViewController(viewController, animated: true)
+    }
+
+}
+
+extension AccountViewController: WKOnboardingViewDelegate {
+    func didClickPrimaryButton() {
+        let alert = UIAlertController(title: "Hello", message: "Pressed 1 button", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        if let presentedViewController {
+            presentedViewController.present(alert, animated: true)
+        }
+        print("PRINT 111111")
+    }
+
+    func didClickSecondaryButton() {
+        let alert = UIAlertController(title: "Hi", message: "Pressed 2nd button", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        if let presentedViewController {
+            presentedViewController.present(alert, animated: true)
+        }
+        print("PRINT 22222")
     }
 
 }
