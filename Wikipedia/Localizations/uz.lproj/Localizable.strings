@@ -3,6 +3,7 @@
 // Author: 6ahodir
 // Author: Jamshiduralovofficial
 // Author: Malikxan
+// Author: McDutchie
 // Author: Mhurd
 // Author: Nemo bis
 // Author: Ochilov
@@ -114,7 +115,9 @@
 "description-help-tips-for-example" = "Misol uchun:";
 "description-published-button-title" = "Bajarildi";
 "description-welcome-start-editing-button" = "Tahrirlashni boshlash";
+// Fuzzy
 "diff-compare-header-from-info-heading" = "Kimdan:";
+// Fuzzy
 "diff-compare-header-to-info-heading" = "Kimga:";
 "diff-context-lines-collapsed-button-title" = "Koʻrsatish";
 "diff-context-lines-expanded-button-title" = "Yashirish";
@@ -147,7 +150,7 @@
 "explore-featured-article-sub-heading-from-wikipedia" = "Vikipediyadan";
 "explore-feed-customize-accessibility-title" = "Moslash";
 "explore-main-page-heading" = "Vikipediyada bugun";
-"explore-most-read-generic-heading" = "Koʻp oʻqilgan";
+"explore-most-read-generic-heading" = "Koʻp oʻqilayotgan";
 "explore-most-read-sub-heading-on-language-wikipedia" = "$1 Vikipediyada";
 "explore-most-read-sub-heading-on-wikipedia" = "Vikipediya";
 "explore-nearby-placeholder-heading" = "Joylar";
@@ -165,7 +168,7 @@
 "field-alert-captcha-invalid" = "Yaroqsiz CAPTCHA";
 "field-alert-token-invalid" = "Yaroqsiz kod";
 "field-captcha-placeholder" = "CAPTCHA matni";
-"field-email-placeholder" = "misol@misol.org";
+"field-email-placeholder" = "misol@example.org";
 "field-email-title" = "E-pochta";
 "field-new-password-placeholder" = "yangi parolni kiriting";
 "field-new-password-title" = "Yangi parol";
@@ -263,11 +266,8 @@
 "page-history-minor-edits" = "kichik tahrirlar";
 "page-history-revision-author-accessibility-label" = "Muallif: $1";
 "page-history-revision-minor-edit-accessibility-label" = "Kichik tahrir";
-"page-protected-autoconfirmed" = "Bu sahifa yarim himoyalangan.";
 "page-protected-can-not-edit" = "Ushbu sahifani tahrirlash uchun yetarli huquqingiz yoʻq";
 "page-protected-can-not-edit-title" = "Bu sahifa himoyalangan";
-"page-protected-other" = "Bu sahifa quyidagi darajalarda himoyalangan: $1";
-"page-protected-sysop" = "Bu sahifa toʻliq himoyalangan.";
 "places-filter-button-title" = "Filtr";
 "places-filter-saved-articles" = "Saqlangan maqolalar";
 "places-filter-top-read-articles" = "Koʻp oʻqilgan maqolalar";
@@ -300,14 +300,6 @@
 "settings-clear-cache-ok" = "Keshni tozalash";
 "settings-title" = "Sozlamalar";
 "table-of-contents-heading" = "Mundarija";
-"talk-page-add-discussion-accessibility-label" = "Munozara qoʻshish";
-"talk-page-new-subject-clear-button-accessibility" = "Mavzuni tozalash";
-"talk-page-new-subject-placeholder-text" = "Mavzu";
-"talk-page-new-subject-textfield-accessibility-label" = "Mavzu";
-"talk-page-new-topic-title" = "Yangi munozara";
-"talk-page-reply-title" = "Javob berish";
-"talk-page-topic-title" = "Munozara";
-"talk-pages-reply-button-title" = "Bu munozaraga javob berish";
 "theme-black-display-name" = "Qora";
 "theme-dark-display-name" = "Toʻq qora";
 "theme-default-display-name" = "Sukut boʻyicha";

@@ -32,6 +32,8 @@ let WMFDidShowNotificationsCenterPushOptInPanel = "WMFDidShowNotificationsCenter
 let WMFSubscribedToEchoNotifications = "WMFSubscribedToEchoNotifications"
 let WMFTappedToImportSharedReadingListSurvey = "WMFTappedToImportSharedReadingListSurvey"
 public let WMFAlwaysDisplayEditNotices = "WMFAlwaysDisplayEditNotices"
+let WMFSessionBackgroundDate =  "WMFSessionBackgroundDate"
+let WMFSessionStartDate =  "WMFSessionStartDate"
 
 @objc public enum WMFAppDefaultTabType: Int {
     case explore
@@ -475,27 +477,6 @@ public let WMFAlwaysDisplayEditNotices = "WMFAlwaysDisplayEditNotices"
         }
     }
     
-    var talkPageForceRefreshRevisionIDs: Set<Int>? {
-        get {
-            guard let arrayValue = array(forKey: UserDefaults.Key.talkPageForceRefreshRevisionIDs) as? [Int],
-                !arrayValue.isEmpty else {
-                return nil
-            }
-            return Set<Int>(arrayValue)
-        }
-        set {
-            
-            guard let newValue = newValue,
-                !newValue.isEmpty else {
-                removeObject(forKey: UserDefaults.Key.talkPageForceRefreshRevisionIDs)
-                return
-            }
-            
-            let arrayValue = Array(newValue)
-            set(arrayValue, forKey: UserDefaults.Key.talkPageForceRefreshRevisionIDs)
-        }
-    }
-    
     private var systemDarkModeEnabled: Bool {
         get {
             return bool(forKey: "SystemDarkMode")
@@ -532,6 +513,33 @@ public let WMFAlwaysDisplayEditNotices = "WMFAlwaysDisplayEditNotices"
         }
         set {
             set(newValue, forKey: WMFAlwaysDisplayEditNotices)
+        }
+    }
+
+    @objc var wmf_sessionBackgroundTimestamp: Date? {
+        get {
+            return object(forKey: WMFSessionBackgroundDate) as? Date
+        }
+        set {
+            set(newValue, forKey: WMFSessionBackgroundDate)
+        }
+    }
+    
+    @objc var wmf_sessionStartTimestamp: Date? {
+        get {
+            return object(forKey: WMFSessionStartDate) as? Date
+        }
+        set {
+            set(newValue, forKey: WMFSessionStartDate)
+        }
+    }
+
+    @objc var wmf_sessionID: String? {
+        get {
+            return string(forKey: "WMFSessionID")
+        }
+        set {
+            set(newValue, forKey: "WMFSessionID")
         }
     }
 

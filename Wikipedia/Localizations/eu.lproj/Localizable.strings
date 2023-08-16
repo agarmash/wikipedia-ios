@@ -8,6 +8,7 @@
 // Author: EukeneFL
 // Author: Fitoschido
 // Author: Gorkaazk
+// Author: McDutchie
 // Author: Mikel Ibaiba
 // Author: Nemo bis
 // Author: Sator
@@ -205,7 +206,7 @@
 "field-backup-token-title" = "Babeskopia kodea";
 "field-captcha-placeholder" = "CAPTCHA testua";
 "field-captcha-title" = "Goian ikusten duzun testua idatzi";
-"field-email-placeholder" = "adibidea@adibidea.eus";
+"field-email-placeholder" = "adibidea@example.org";
 "field-email-title" = "Helbide elektronikoa";
 "field-email-title-optional" = "Helbide elektronikoa (aukerakoa)";
 "field-new-password-confirm-placeholder" = "Idatzi berriz pasahitz berria";
@@ -292,11 +293,8 @@
 "on-this-day-sub-title-for-date-from-language-wikipedia" = "$1 $2 Wikipediatik";
 "on-this-day-title" = "Gaurkoan";
 "original-tab-button-popover-description" = "Sakatu 'W' jatorrizko lehiatilara bueltatzeko";
-"page-protected-autoconfirmed" = "Orri hau erdi babestua dago.";
 "page-protected-can-not-edit" = "Ez duzu orrialde hau aldatzeko baimenik";
 "page-protected-can-not-edit-title" = "Orrialde hau babestuta dago";
-"page-protected-other" = "Orrialde hau ondoren mailetan babestu da: $1";
-"page-protected-sysop" = "Orri hau erabat babestua dago.";
 "pictured" = "Irudikatuta";
 "places-accessibility-clear-saved-searches" = "Garbitu gordetako bilaketak";
 "places-accessibility-group" = "$1 artikulu";

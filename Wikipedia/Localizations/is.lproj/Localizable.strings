@@ -4,6 +4,7 @@
 // Author: LoveIceLang
 // Author: Macofe
 // Author: Maxí
+// Author: McDutchie
 // Author: MyraMidnight
 // Author: Nemo bis
 // Author: Sveinn í Felli
@@ -143,9 +144,11 @@
 "article-toolbar-reading-themes-controls-toolbar-item" = "Stýringar lestrarþemu";
 "back-button-accessibility-label" = "Til baka";
 "back-button-popover-title" = "Banka til að fara til baka";
+"button-go-back" = "Fara til baka";
 "button-next" = "Áfram";
 "button-ok" = "Í lagi";
 "button-publish" = "Gefa út";
+"button-publish-anyway" = "Gefa samt út";
 "button-read-now" = "Lesa núna";
 "button-report-a-bug" = "Tilkynna um villu";
 "button-save-for-later" = "Vista til síðari tíma";
@@ -198,12 +201,15 @@
 "description-welcome-descriptions-title" = "Lýsingar greina";
 "description-welcome-promise-title" = "Ef ég byrja, lofa ég að misnota ekki þennan eiginleika";
 "description-welcome-start-editing-button" = "Byrja að breyta";
-"diff-compare-header-from-info-heading" = "Frá:";
+// Fuzzy
+"diff-compare-header-from-info-heading" = "Frá";
 "diff-compare-header-heading" = "Bera saman útgáfur";
-"diff-compare-header-to-info-heading" = "Til:";
+// Fuzzy
+"diff-compare-header-to-info-heading" = "Til";
 "diff-compare-title" = "Bera saman útgáfur";
 "diff-context-lines-collapsed-button-title" = "Sýna";
 "diff-context-lines-expanded-button-title" = "Fela";
+"diff-header-revision-accessibility-text" = "Endurskoðun gerð";
 "diff-multi-line-format" = "Línur $1 - $2";
 "diff-paragraph-moved" = "Málsgrein færð";
 "diff-paragraph-moved-direction-down" = "niður";
@@ -212,6 +218,10 @@
 "diff-paragraph-moved-distance-section" = "{{PLURAL:$1|$1 hluti|$1 hlutar}}";
 "diff-paragraph-moved-format" = "Málsgrein færð $1 $2";
 "diff-revision-error-title" = "Tókst ekki að ná í útgáfu";
+"diff-rollback" = "Taka til baka";
+"diff-rollback-alert-message" = "Ertu viss um að þú viljir afturkalla breytingarnar?";
+"diff-rollback-alert-title" = "Afturkalla breytingar";
+"diff-rollback-success" = "Breytingar afturkallaðar.";
 "diff-single-header-editor-number-edits-format" = "{{PLURAL:$1|breyting|breytingar}}";
 "diff-single-header-editor-title" = "Upplýsingar um ritil";
 "diff-single-header-subtitle-bytes-added" = "{{PLURAL:$1|$1 bæti bætt við|$1 bætum bætt við}}";
@@ -228,6 +238,7 @@
 "diff-thanks-sent" = "Þakkarskilaboðin þín voru send til $1";
 "diff-thanks-sent-already" = "Þú ert þegar búin/n að senda þakkir fyrir þessa breytingu";
 "diff-thanks-sent-cannot-unsend" = "Þakkir er ekki hægt að afturkalla";
+"diff-undo-success" = "Yfirferðin var afturkölluð.";
 "diff-unedited-lines-format" = "{{PLURAL:$1|$1 lína óbreytt|$1 línur óbreyttar}}";
 "dim-images" = "Dekkja myndir";
 "edit-bold-accessibility-label" = "Bættu við feitletrun";
@@ -255,6 +266,9 @@
 "edit-menu-item-could-not-find-selection-alert-title" = "Ekki tókst að staðsetja textann sem þú valdir";
 "edit-minor-learn-more-text" = "Fræðast meira um minniháttar breytingar";
 "edit-minor-text" = "Þetta er minniháttar breyting";
+"edit-notices" = "Tilkynningar vegna breytinga";
+"edit-notices-always-display" = "Alltaf birta tilkynningar vegna breytinga";
+"edit-notices-please-read" = "Lestu þetta áður en þú byrjar að breyta";
 "edit-ordered-list-accessibility-label" = "Gerðu núverandi línu að röðuðum lista";
 "edit-ordered-list-remove-accessibility-label" = "Fjarlægðu raðaðan lista úr núverandi línu";
 "edit-published" = "Breyta útgefnu";
@@ -403,6 +417,8 @@
 "explore-random-article-sub-heading-from-language-wikipedia" = "Af $1 Wikipedia";
 "explore-random-article-sub-heading-from-wikipedia" = "Af Wikipedia";
 "explore-randomizer" = "Slembið";
+"export-user-data-confirmation-title" = "Deila forritasafni?";
+"export-user-data-generic-error" = "Villa kom upp við að flytja út gögnin þín. Reyndu aftur seinna.";
 "export-user-data-title" = "Flytja út notandagögn";
 "featured-widget-content-failure-for-date" = "Engin forsíðugrein er tiltæk fyrir þessa dagsetningu.";
 "featured-widget-description" = "Uppgötvaðu bestu greinarnar á Wikipedia, valdar af þátttakendunum okkar.";
@@ -419,7 +435,7 @@
 "field-backup-token-title" = "Öryggiskóði";
 "field-captcha-placeholder" = "CAPTCHA-texti";
 "field-captcha-title" = "Settu inn textann sem þú sérð hér að ofan";
-"field-email-placeholder" = "notandi@vefur.is";
+"field-email-placeholder" = "notandi@example.org";
 "field-email-title" = "Tölvupóstur";
 "field-email-title-optional" = "Tölvupóstfang (valfrjálst)";
 "field-new-password-confirm-placeholder" = "settu aftur inn nýja lykilorðið";
@@ -470,6 +486,8 @@
 "import-shared-reading-list-default-title" = "Leslistinn minn";
 "import-shared-reading-list-survey-prompt-button-cancel" = "Ekki núna";
 "import-shared-reading-list-survey-prompt-button-take-survey" = "Taka þátt í könnun";
+"import-shared-reading-list-survey-prompt-subtitle" = "\"Deila leslistum\" er prófunareiginleiki og við þurfum álit þitt til að bæta eða fjarlægja hann.";
+"import-shared-reading-list-survey-prompt-title" = "Gætirðu hjálpað okkur að bæta „Deila leslistum“?";
 "import-shared-reading-list-title" = "Flytja inn sameiginlegan leslista";
 "in-the-news-sub-title-from-language-wikipedia" = "Af $1 Wikipedia";
 "in-the-news-sub-title-from-wikipedia" = "Af Wikipedia";
@@ -501,12 +519,6 @@
 "insert-media-media-settings-title" = "Stillingar margmiðlunargagna";
 "insert-media-title" = "Settu inn margmiðlunargögn";
 "insert-media-uploaded-image-title" = "Innsend mynd";
-"intermediate-edits-count" = "{{PLURAL:$1|$1 millibreyting|$1 millibreytingar}} ekki birt";
-"intermediate-edits-count-limited" = "$1+ millibreytingar ekki sýndar";
-"intermediate-edits-editors-count" = "{{PLURAL:$1|$1 millibreyting ekki birt|$1 millibreytingar ekki birtar}} frá {{PLURAL:$2|$2 notanda|$2 notendum}}";
-"intermediate-edits-editors-count-limited" = "$1+ millibreytingar frá $2+ notendum ekki birtar";
-"intermediate-edits-editors-limited-count" = "{{PLURAL:$1|$1 millibreyting ekki birt|$1 millibreytingar ekki birtar}} frá $2+ notendum";
-"intermediate-edits-limited-editors-count" = "$1+ millibreytingar frá {{PLURAL:$2|$2 notanda|$2 notendum}} ekki birtar";
 "inuktitut-variants-alert-title" = "Uppfærslur á stuðningi við tilbrigði Inuktitut";
 "kazakh-variants-alert-title" = "Uppfærslur á stuðningi við tilbrigði kasakísku";
 "kurdish-variants-alert-title" = "Uppfærslur á stuðningi við tilbrigði kúrdísku";
@@ -537,6 +549,7 @@
 "menu-cancel-accessibility-label" = "Hætta við";
 "more-languages-tooltip-description" = "Leita í Wikipedia á yfir 300 tungumálum";
 "more-languages-tooltip-title" = "Bæta við tungumálum";
+"more-menu" = "Meira";
 "move-articles-to-reading-list" = "Færa {{PLURAL:$1|$1 grein|$1 greinar}} á leslista";
 "navbar-title-mode-edit-wikitext-preview" = "Forskoðun";
 "nearby-distance-label-feet" = "$1 fet";
@@ -696,15 +709,13 @@
 "page-history-user-edits" = "breytingar notanda";
 "page-issues" = "Vandamál varðandi síðu";
 "page-location" = "Skoða á korti";
-"page-protected-autoconfirmed" = "Þessi síða er varin að hluta til.";
 "page-protected-can-not-edit" = "Þú hefur ekki réttindi á að breyta þessari síðu";
 "page-protected-can-not-edit-title" = "Þessi síða er varin";
-"page-protected-other" = "Þessi síða er varin upp á eftirfarandi stig: $1";
-"page-protected-sysop" = "Þessi síða er varin í heild.";
 "page-similar-titles" = "Áþekkar síður";
 "panel-compare-revisions-text" = "Að bera saman útgáfur hjálpar til við að sjá hvernig grein hefur breyst í tímans rás. Þegar tvær útgáfur greinar eru bornar saman, er munurinn á þeim sýndur með áherslulitun á því sem hefur verið breytt.";
 "panel-compare-revisions-title" = "Bera saman útgáfur";
 "panel-not-logged-in-continue-edit-action-title" = "Gera breytingar án þess að skrá inn";
+"panel-not-logged-in-subtitle" = "Vistfang þitt verður sýnt opinberlega ef þú gerir einhverjar breytingar. Ef þú $1 skráir þig inn$2 eða $3stofnar aðgang$4 munu breytingarnar þínar vera tengdar við notandanafn þitt, ásamt öðrum kostum.";
 "panel-not-logged-in-title" = "Þú ert ekki skráð/ur inn.";
 "pictured" = "fjallað um";
 "places-accessibility-clear-saved-searches" = "Hreinsa vistaðar leitir";
@@ -945,50 +956,30 @@
 "tachelhit-variants-alert-title" = "Uppfærslur á stuðningi við tilbrigði Tachelhit";
 "tajik-variants-alert-title" = "Uppfærslur á stuðningi við tilbrigði tadsikísku";
 "talk-page-active-users-accessibilty-label" = "{{PLURAL:$1| $1 virkur notandi| $1 virkir notendur}}";
-"talk-page-add-discussion-accessibility-label" = "Bæta við umræðu";
 "talk-page-add-topic-button" = "Bæta við efni";
 "talk-page-archives" = "Söfn";
 "talk-page-article-about" = "Um spjallsíður";
 "talk-page-change-language" = "Skipta um tungumál";
 "talk-page-collapse-thread-button" = "Fella saman þráð";
-"talk-page-discussion-accessibility-hint" = "Tvíbankaðu til að opna umræðuþráð";
 "talk-page-discussion-read-accessibility-label" = "Lesið";
-"talk-page-discussion-read-ipa-accessibility-attribute" = "lɛsið";
 "talk-page-discussion-unread-accessibility-label" = "Ólesið";
-"talk-page-discussion-unread-ipa-accessibility-attribute" = "olɛsið";
 "talk-page-error-alert-subtitle" = "Forritið fékk óvænt svar frá þjóninum. Prófaðu aftur síðar.";
 "talk-page-error-alert-title" = "Óvænt villa";
 "talk-page-error-loading-subtitle" = "Eitthvað fór úrskeiðis.";
 "talk-page-error-loading-title" = "Gat ekki hlaðið inn spjallsíðu";
-"talk-page-error-unable-to-post-reply" = "Engin internettenging. Gat ekki sent svar.";
-"talk-page-error-unable-to-post-topic" = "Engin internettenging. Gat ekki sent í umræðu.";
 "talk-page-expand-thread-button" = "Fella út þráð";
 "talk-page-find-in-page-button" = "Finna á síðu";
-"talk-page-info-active-conversations" = "Virk samtöl á $1 Wikipedia";
-"talk-page-info-active-conversations-generic" = "Virk samtöl á Wikipedia";
-"talk-page-link-user-action-sheet-app" = "Skoða notandasíðu í forriti";
-"talk-page-link-user-action-sheet-safari" = "Skoða notandasíðu í Safari";
-"talk-page-link-user-action-sheet-title" = "Notendasíður";
 "talk-page-menu-open-all" = "Opna alla þræði";
 "talk-page-new-banner-subtitle" = "Mundu að við erum öll mannleg hérna";
 "talk-page-new-banner-title" = "Vertu vinsamleg/ur";
-"talk-page-new-body-textfield-accessibility-label" = "Meginmál umræðu";
-"talk-page-new-reply-body-accessibility-label" = "Semja svar";
-"talk-page-new-reply-body-placeholder-text" = "Semja svar";
 "talk-page-new-reply-success-text" = "Það tókst að vista svarið þitt";
-"talk-page-new-subject-clear-button-accessibility" = "Hreinsa viðfangsefni";
-"talk-page-new-subject-placeholder-text" = "Viðfangsefni";
-"talk-page-new-subject-textfield-accessibility-label" = "Viðfangsefni";
-"talk-page-new-topic-body-placeholder-text" = "Hefja nýja umræðu";
 "talk-page-new-topic-success-text" = "Það tókst að vista umræðuna þína";
-"talk-page-new-topic-title" = "Ný umræða";
 "talk-page-onboarding-button-accessibility-label" = "Pikkaðu tvisvar til að fara aftur í svarið";
 "talk-page-overflow-menu-accessibility" = "Fleiri valkostir spjallsíðu";
 "talk-page-page-info" = "Síðuupplýsingar";
 "talk-page-permanent-link" = "Varanlegur tengill";
 "talk-page-publish-reply-error-subtitle" = "Athugaðu internettenginguna þína.";
 "talk-page-publish-reply-error-title" = "Ekki tókst að birta athugasemdina þína.";
-"talk-page-publish-terms-and-licenses" = "Með því að vista breytingar samþykkir þú $1notkunarskilmálana$2 og að framlag þitt verði gefið út með $3CC BY-SA 3.0$4 og $5GFDL$6 notkunarleyfunum.";
 "talk-page-publish-topic-error-title" = "Ekki er hægt að birta nýtt efni.";
 "talk-page-read-in-web" = "Lesa á vefnum";
 "talk-page-related-links" = "Hvað tengist hingað";
@@ -998,7 +989,6 @@
 "talk-page-reply-depth-accessibility-label" = "Dýpt svars: $1";
 "talk-page-reply-placeholder-format" = "Svara $1";
 "talk-page-reply-terms-and-licenses" = "Athugaðu að svarið þitt verður sjálfkrafa undirritað með noteandanafninu þínu. Með því að vista breytingar samþykkir þú $1notkunarskilmálana$2 og samþykkir að gefa út framlag þitt með $3CC BY-SA 3.0$4 og $5GFDL$6 notkunarleyfum.";
-"talk-page-reply-title" = "Svara";
 "talk-page-revision-history" = "Breytingaskrá";
 "talk-page-rply-close-button-accessibility-hint" = "Loka svarsýn";
 "talk-page-share-button" = "Deila spjallsíðu";
@@ -1010,7 +1000,6 @@
 "talk-page-title-user-talk" = "Spjall notanda";
 "talk-page-topic-close-button-hint" = "Loka nýju umræðuefni";
 "talk-page-topic-compose-terms-and-licenses" = "Með því að vista breytingar samþykkir þú $1notkunarskilmálana$2 og óafturkræft að framlag þitt verði gefið út með $3CC BY-SA 3.0$4 og $5GFDL$6 notkunarleyfunum.";
-"talk-page-topic-title" = "Umræða";
 "talk-page-unsubscribe-to-topic" = "Segja upp áskrift";
 "talk-page-unsubscribed-alert-subtitle" = "Þú munt ekki lengur fá tilkynningar um nýjar athugasemdir í þessu efni.";
 "talk-page-unsubscribed-alert-title" = "Þú hefur sagt upp áskrift.";
@@ -1028,7 +1017,6 @@
 "talk-pages-empty-view-button-user-start-discussion" = "Byrja nýja umræðu";
 "talk-pages-empty-view-header-article" = "Umræðan hefst hér";
 "talk-pages-empty-view-header-user" = "Byrjaðu umræðu með $1";
-"talk-pages-reply-button-title" = "Svara á þessa umræðu";
 "talk-pages-reply-compose-close-confirmation-title" = "Ertu viss um að þú viljir henda þessu nýja svari?";
 "talk-pages-topic-added-alert-title" = "Umræðuefninu þínu var bætt við";
 "talk-pages-topic-compose-body-placeholder" = "Lýsing";
@@ -1085,6 +1073,11 @@
 "vanishing-request-email-title" = "Beiðni um að hverfa á kurteisan máta";
 "variants-alert-dismiss-button" = "Nei, takk";
 "variants-alert-preferences-button" = "Yfirfarðu kjörstillingarnar þínar";
+"watch" = "Vakta";
+"watchlist" = "Vaktlisti";
+"watchlist-user-button-user-contributions" = "Framlög notanda";
+"watchlist-user-button-user-page" = "Notandasíða";
+"watchlist-user-button-user-talk-page" = "Spjallsíða notanda";
 "welcome-exploration-explore-feed-description" = "Lesefni sem mælt er með og daglegar greinar frá samfélaginu okkar";
 "welcome-exploration-explore-feed-title" = "'Uppgötva'-streymið";
 "welcome-exploration-on-this-day-description" = "Ferðastu aftur í tímann til að læra hvað gerðist á þessum degi í sögulegu samhengi";

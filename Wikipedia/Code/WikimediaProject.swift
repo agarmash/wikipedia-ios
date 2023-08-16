@@ -1,4 +1,5 @@
 import Foundation
+import WKData
 
 public enum WikimediaProject: Hashable {
     public typealias LanguageCode = String
@@ -75,6 +76,19 @@ public enum WikimediaProject: Hashable {
         }
     }
     
+    public var wkProject: WKProject? {
+        switch self {
+        case .commons:
+            return WKProject.commons
+        case .wikidata:
+            return WKProject.wikidata
+        case .wikipedia(let languageCode, _, let languageVariantCode):
+            return WKProject.wikipedia(WKLanguage(languageCode: languageCode, languageVariantCode: languageVariantCode))
+        default:
+            return nil
+        }
+    }
+    
     public init?(siteURL: URL, languageLinkController: MWKLanguageLinkController? = nil) {
         
         let canonicalSiteURL = siteURL.canonical
@@ -111,8 +125,6 @@ public enum WikimediaProject: Hashable {
             self = .wikiquote(languageCode, localizedLanguageName)
         } else if siteURLString.contains(Configuration.Domain.wikibooks) {
             self = .wikibooks(languageCode, localizedLanguageName)
-        } else if siteURLString.contains(Configuration.Domain.wiktionary) {
-            self = .wiktionary(languageCode, localizedLanguageName)
         } else if siteURLString.contains(Configuration.Domain.wiktionary) {
             self = .wiktionary(languageCode, localizedLanguageName)
         } else if siteURLString.contains(Configuration.Domain.wikisource) {

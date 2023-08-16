@@ -2,7 +2,7 @@ import UIKit
 import WMF
 import CocoaLumberjackSwift
 
-class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewControllerDelegate, UISearchBarDelegate, CollectionViewUpdaterDelegate, ImageScaleTransitionProviding, DetailTransitionSourceProviding, EventLoggingEventValuesProviding {
+class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewControllerDelegate, UISearchBarDelegate, CollectionViewUpdaterDelegate, ImageScaleTransitionProviding, DetailTransitionSourceProviding, MEPEventsProviding {
 
     public var presentedContentGroupKey: String?
     public var shouldRestoreScrollPosition = false
@@ -37,7 +37,7 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
         NotificationCenter.default.addObserver(self, selector: #selector(articleDeleted(_:)), name: NSNotification.Name.WMFArticleDeleted, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pushNotificationBannerDidDisplayInForeground(_:)), name: .pushNotificationBannerDidDisplayInForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(viewContextDidReset(_:)), name: NSNotification.Name.WMFViewContextDidReset, object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(databaseHousekeeperDidComplete), name: .databaseHousekeeperDidComplete, object: nil)
 #if UI_TEST
         if UserDefaults.standard.wmf_isFastlaneSnapshotInProgress() {
             collectionView.decelerationRate = .fast
@@ -99,6 +99,12 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
         dataStore.feedContentController.dismissCollapsedContentGroups()
         stopMonitoringReachability()
         isGranularUpdatingEnabled = false
+    }
+    
+    @objc private func databaseHousekeeperDidComplete() {
+        DispatchQueue.main.async {
+            self.refresh()
+        }
     }
 
     @objc func updateNotificationsCenterButton() {
@@ -166,9 +172,7 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
     }
     
     open override func refresh() {
-        FeedFunnel.shared.logFeedRefreshed()
         updateFeedSources(with: nil, userInitiated: true) {
-            
         }
     }
     
@@ -216,7 +220,6 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
         }
         
         isLoadingOlderContent = true
-        FeedFunnel.shared.logFeedRefreshed()
         updateFeedSources(with: (nextOldestDate as NSDate).wmf_midnightLocalDateForEquivalentUTC, userInitiated: false) {
             self.isLoadingOlderContent = false
         }
@@ -246,7 +249,6 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
             guard isUnobstructed else {
                 continue
             }
-            FeedFunnel.shared.logFeedImpression(for: FeedFunnelContext(group))
         }
     }
     
@@ -320,7 +322,9 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
 
     private func setupFetchedResultsController() {
         let fetchRequest: NSFetchRequest<WMFContentGroup> = WMFContentGroup.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "isVisible == YES && (placement == NULL || placement == %@)", "feed")
+        let today = NSDate().wmf_midnightUTCDateFromLocal as Date
+        let oldestDate = Calendar.current.date(byAdding: .day, value: -WMFExploreFeedMaximumNumberOfDays, to: today) ?? today
+        fetchRequest.predicate = NSPredicate(format: "isVisible == YES && (placement == NULL || placement == %@) && midnightUTCDate >= %@", "feed", oldestDate as NSDate)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "midnightUTCDate", ascending: false), NSSortDescriptor(key: "dailySortPriority", ascending: true), NSSortDescriptor(key: "date", ascending: false)]
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataStore.viewContext, sectionNameKeyPath: "midnightUTCDate", cacheName: nil)
         fetchedResultsController = frc
@@ -530,16 +534,15 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
         let useRandomArticlePreviewItem = titleAreaTapped && group.moreType == .pageWithRandomButton
 
         if !useRandomArticlePreviewItem, let vc = group.detailViewControllerWithDataStore(dataStore, theme: theme) {
-            push(vc, context: FeedFunnelContext(group), index: indexPath.item, animated: true)
+            push(vc, animated: true)
             return
         }
         
         if let vc = group.detailViewControllerForPreviewItemAtIndex(0, dataStore: dataStore, theme: theme) {
             if vc is WMFImageGalleryViewController {
                 present(vc, animated: true)
-                FeedFunnel.shared.logFeedCardOpened(for: FeedFunnelContext(group))
             } else {
-                push(vc, context: FeedFunnelContext(group), index: indexPath.item, animated: true)
+                push(vc, animated: true)
             }
             return
         }
@@ -679,14 +682,12 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
             otdvc.initialEvent = (contentGroup.contentPreview as? [Any])?[indexPath.item] as? WMFFeedOnThisDayEvent
         }
         
-        let context = FeedFunnelContext(contentGroup)
         presentedContentGroupKey = contentGroup.key
         switch contentGroup.detailType {
         case .gallery:
             present(vc, animated: true)
-            FeedFunnel.shared.logFeedCardOpened(for: context)
         default:
-            push(vc, context: context, index: indexPath.item, animated: true)
+            push(vc, animated: true)
         }
     }
     
@@ -748,16 +749,16 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
 
     // MARK: Event logging
 
-    var eventLoggingCategory: EventLoggingCategory {
+    var eventLoggingCategory: EventCategoryMEP {
         return .feed
     }
 
-    var eventLoggingLabel: EventLoggingLabel? {
-        return previewed.context?.label
+    var eventLoggingLabel: EventLabelMEP? {
+        return previewed.context?.getAnalyticsLabel()
     }
 
     // MARK: - For NestedCollectionViewContextMenuDelegate
-    private var previewed: (context: FeedFunnelContext?, indexPathItem: Int?)
+    private var previewed: (context: WMFContentGroup?, indexPathItem: Int?)
 
     func contextMenu(with contentGroup: WMFContentGroup? = nil, for articleURL: URL? = nil, at itemIndex: Int) -> UIContextMenuConfiguration? {
         guard let contentGroup = contentGroup, let vc = viewController(for: contentGroup, at: itemIndex) else {
@@ -777,7 +778,7 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
     }
 
     func viewController(for contentGroup: WMFContentGroup, at itemIndex: Int) -> UIViewController? {
-        previewed.context = FeedFunnelContext(contentGroup)
+        previewed.context = contentGroup
 
         if let viewControllerToCommit = contentGroup.detailViewControllerForPreviewItemAtIndex(itemIndex, dataStore: dataStore, theme: theme) {
             if let potd = viewControllerToCommit as? WMFImageGalleryViewController {
@@ -793,7 +794,7 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
             }
 
             previewed.indexPathItem = itemIndex
-            FeedFunnel.shared.logFeedCardPreviewed(for: previewed.context, index: itemIndex)
+
 
             return viewControllerToCommit
         } else if contentGroup.contentGroupKind != .random {
@@ -815,18 +816,17 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
             if let potd = viewControllerToCommit as? WMFImageGalleryViewController {
                 potd.setOverlayViewTopBarHidden(false)
                 self.present(potd, animated: false)
-                FeedFunnel.shared.logFeedCardOpened(for: self.previewed.context)
             } else if let avc = viewControllerToCommit as? ArticleViewController {
                 avc.wmf_removePeekableChildViewControllers()
-                self.push(avc, context: self.previewed.context, index: self.previewed.indexPathItem, animated: false)
+                self.push(avc, animated: false)
             } else if let otdVC = viewControllerToCommit as? OnThisDayViewController {
                 otdVC.navigationMode = .detail
-                self.push(viewControllerToCommit, context: self.previewed.context, index: self.previewed.indexPathItem, animated: true)
+                self.push(viewControllerToCommit, animated: true)
             } else if let newsVC = viewControllerToCommit as? NewsViewController {
                 newsVC.navigationMode = .detail
-                self.push(viewControllerToCommit, context: self.previewed.context, index: self.previewed.indexPathItem, animated: true)
+                self.push(viewControllerToCommit, animated: true)
             } else {
-                self.push(viewControllerToCommit, context: self.previewed.context, index: self.previewed.indexPathItem, animated: true)
+                self.push(viewControllerToCommit, animated: true)
             }
         }
     }
@@ -835,19 +835,20 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
     
     override func shareArticlePreviewActionSelected(with articleController: ArticleViewController, shareActivityController: UIActivityViewController) {
         super.shareArticlePreviewActionSelected(with: articleController, shareActivityController: shareActivityController)
-        FeedFunnel.shared.logFeedShareTapped(for: previewed.context, index: previewed.indexPathItem)
     }
 
     override func readMoreArticlePreviewActionSelected(with articleController: ArticleViewController) {
         articleController.wmf_removePeekableChildViewControllers()
-        push(articleController, context: previewed.context, index: previewed.indexPathItem, animated: true)
+        push(articleController, animated: true)
     }
 
     override func saveArticlePreviewActionSelected(with articleController: ArticleViewController, didSave: Bool, articleURL: URL) {
-        if didSave {
-            ReadingListsFunnel.shared.logSaveInFeed(context: previewed.context, articleURL: articleURL, index: previewed.indexPathItem)
-        } else {
-            ReadingListsFunnel.shared.logUnsaveInFeed(context: previewed.context, articleURL: articleURL, index: previewed.indexPathItem)
+        if let date = previewed.context?.midnightUTCDate {
+            if didSave {
+                ReadingListsFunnel.shared.logSaveInFeed(label: previewed.context?.getAnalyticsLabel(), measureAge: date, articleURL: articleURL, index: previewed.indexPathItem)
+            } else {
+                ReadingListsFunnel.shared.logUnsaveInFeed(label: previewed.context?.getAnalyticsLabel(), measureAge: date, articleURL: articleURL, index: previewed.indexPathItem)
+            }
         }
     }
 
@@ -1034,7 +1035,6 @@ extension ExploreViewController: ExploreCardCollectionViewCellDelegate {
             self.present(themeableNavigationController, animated: true)
         }
         let hideThisCard = UIAlertAction(title: WMFLocalizedString("explore-feed-preferences-hide-card-action-title", value: "Hide this card", comment: "Title for action that allows users to hide a feed card"), style: .default) { (_) in
-            FeedFunnel.shared.logFeedCardDismissed(for: FeedFunnelContext(group))
             group.undoType = .contentGroup
             self.wantsDeleteInsertOnNextItemUpdate = true
             self.save()
@@ -1051,7 +1051,6 @@ extension ExploreViewController: ExploreCardCollectionViewCellDelegate {
                 self.wantsDeleteInsertOnNextItemUpdate = true
             }
             feedContentController.toggleContentGroup(of: group.contentGroupKind, isOn: false, waitForCallbackFromCoordinator: true, apply: true, updateFeed: false)
-            FeedFunnel.shared.logFeedCardDismissed(for: FeedFunnelContext(group))
         }
         let cancel = UIAlertAction(title: CommonStrings.cancelActionTitle, style: .cancel)
         sheet.addAction(hideThisCard)
@@ -1069,7 +1068,6 @@ extension ExploreViewController: ExploreCardCollectionViewCellDelegate {
             let group = vc.contentGroup else {
                 return
         }
-        FeedFunnel.shared.logFeedCardRetained(for: FeedFunnelContext(group))
         if group.undoType == .contentGroupKind {
             dataStore.feedContentController.toggleContentGroup(of: group.contentGroupKind, isOn: true, waitForCallbackFromCoordinator: false, apply: true, updateFeed: false)
         }
@@ -1081,13 +1079,6 @@ extension ExploreViewController: ExploreCardCollectionViewCellDelegate {
         save()
     }
     
-}
-
-// MARK: - EventLoggingSearchSourceProviding
-extension ExploreViewController: EventLoggingSearchSourceProviding {
-    var searchSource: String {
-        return "top_of_feed"
-    }
 }
 
 // MARK: - Notifications Center

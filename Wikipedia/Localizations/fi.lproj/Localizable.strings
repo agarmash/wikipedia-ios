@@ -13,6 +13,7 @@
 // Author: Kimberli Mäkäräinen (WMNO)
 // Author: Laurianttila
 // Author: MITO
+// Author: McDutchie
 // Author: McSalama
 // Author: Mediawikitranslator
 // Author: Moottori
@@ -30,6 +31,7 @@
 // Author: Valtlai
 // Author: Valtlait
 // Author: Veikk0.ma
+// Author: Yupik
 
 "aaald-added-text-description-2" = "$1 lisätty";
 "aaald-article-description-updated-description" = "Artikkelin kuvaus päivitetty";
@@ -114,7 +116,7 @@
 "action-language-accessibility" = "Vaihda kieli";
 "action-move-to" = "Siirrä kohteeseen...";
 "action-move-to-reading-list" = "Siirrä lukulistaan";
-"action-next-revision-accessibility" = "Seuraava istunto";
+"action-next-revision-accessibility" = "Seuraava versio";
 "action-previous-revision-accessibility" = "Edellinen versio";
 "action-read" = "Lue";
 "action-redo" = "Tee uudelleen";
@@ -222,9 +224,11 @@
 "description-welcome-descriptions-title" = "Artikkelin kuvaukset";
 "description-welcome-promise-title" = "Aloittamalla, lupaan etten väärinkäytä tätä ominaisuutta";
 "description-welcome-start-editing-button" = "Aloita muokkaaminen";
-"diff-compare-header-from-info-heading" = "Alkuperäinen:";
+// Fuzzy
+"diff-compare-header-from-info-heading" = "Alkuperäinen";
 "diff-compare-header-heading" = "Versioiden vertailu";
-"diff-compare-header-to-info-heading" = "Muokattu:";
+// Fuzzy
+"diff-compare-header-to-info-heading" = "Muokattu";
 "diff-compare-title" = "Versioiden vertailu";
 "diff-context-lines-collapsed-button-title" = "Näytä";
 "diff-context-lines-expanded-button-title" = "Piilota";
@@ -236,6 +240,7 @@
 "diff-paragraph-moved-distance-section" = "{{PLURAL:$1|$1 kappale|$1 kappaletta}}";
 "diff-paragraph-moved-format" = "Kappale siirretty $2 $1";
 "diff-revision-error-title" = "Versiohistorian näyttäminen epäonnistui";
+"diff-rollback" = "Palauta";
 "diff-single-header-editor-number-edits-format" = "{{PLURAL:$1|$1 muokkaus|$1 muokkausta}}";
 "diff-single-header-editor-title" = "Muokkaajan tiedot";
 "diff-single-header-subtitle-bytes-added" = "{{PLURAL:$1|$1 merkki lisätty|$1 merkkiä lisätty}}";
@@ -279,6 +284,9 @@
 "edit-menu-item-could-not-find-selection-alert-title" = "Valittua tekstiä ei löytynyt";
 "edit-minor-learn-more-text" = "Lue lisää pienistä muutoksista";
 "edit-minor-text" = "Tämä on pieni muutos";
+"edit-notices" = "Muokkausilmoitukset";
+"edit-notices-always-display" = "Näytä aina muokkausilmoitukset";
+"edit-notices-please-read" = "Lue ennen muokkaamista";
 "edit-ordered-list-accessibility-label" = "Tee valitusta rivistä numeroitu lista";
 "edit-ordered-list-remove-accessibility-label" = "Poista valittu rivi numeroidusta listasta";
 "edit-published" = "Muokkaus julkaistu";
@@ -427,6 +435,9 @@
 "explore-random-article-sub-heading-from-language-wikipedia" = "Wikipedian kieliversiosta $1";
 "explore-random-article-sub-heading-from-wikipedia" = "Wikipediasta";
 "explore-randomizer" = "Satunnaistaminen";
+"export-user-data-confirmation-title" = "Jaetaanko sovelluskirjasto?";
+"export-user-data-generic-error" = "Tietojesi viennissä tapahtui virhe. Yritä uudelleen myöhemmin.";
+"export-user-data-space-error" = "Laitteessasi ei ole tarpeeksi tilaa käyttäjätietojen viemiseen. Yritä myöhemmin uudelleen.";
 "export-user-data-title" = "Vie käyttäjätiedot";
 "featured-widget-content-failure-for-date" = "Suositeltu artikkeli ei ole saatavilla tälle päivälle.";
 "featured-widget-description" = "Löydä parhaat Wikipedian artikkelit, joita yhteisömme valitsee päivittäin.";
@@ -443,7 +454,7 @@
 "field-backup-token-title" = "Varmuuskopiointikoodi";
 "field-captcha-placeholder" = "Kuvavarmennuksen teksti";
 "field-captcha-title" = "Kirjoita yllä oleva teksti";
-"field-email-placeholder" = "esimerkki@esimerkki.org";
+"field-email-placeholder" = "esimerkki@example.org";
 "field-email-title" = "Sähköposti";
 "field-email-title-optional" = "Sähköposti (vapaaehtoinen)";
 "field-new-password-confirm-placeholder" = "anna uusi salasana uudelleen";
@@ -494,6 +505,7 @@
 "import-shared-reading-list-default-title" = "Oma lukulista";
 "import-shared-reading-list-survey-prompt-button-cancel" = "Ei nyt";
 "import-shared-reading-list-survey-prompt-button-take-survey" = "Vastaa kyselyyn";
+"import-shared-reading-list-survey-prompt-footer" = "Katso $1tieto­suoja­lausuntomme$2 . Kyselyn tarjoaa kolmas osapuoli. Katso heidän $3tietosuojakäytäntönsä$4 .";
 "import-shared-reading-list-survey-prompt-subtitle" = "Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi";
 "import-shared-reading-list-survey-prompt-title" = "Voisitko auttaa meitä parantamaan lukulistojen jakamista?";
 "import-shared-reading-list-title" = "Tuo jaettu lukulista";
@@ -527,12 +539,6 @@
 "insert-media-media-settings-title" = "Media-asetukset";
 "insert-media-title" = "Lisää media";
 "insert-media-uploaded-image-title" = "Tallennettu kuva";
-"intermediate-edits-count" = "{{PLURAL:$1|Yhtä välissä olevaa versiota|$1 välissä olevaa versiota}} ei näytetä";
-"intermediate-edits-count-limited" = "$1+ välissä olevaa versiota ei näytetä";
-"intermediate-edits-editors-count" = "{{PLURAL:$1|Yhtä välissä olevaa versiota|$1 välissä olevaa versiota}} {{PLURAL:$2|toisen käyttäjän tekemänä|$2 käyttäjän tekeminä}} ei näytetä";
-"intermediate-edits-editors-count-limited" = "$1+ välissä olevaa versiota $2+ käyttäjän tekeminä ei näytetä";
-"intermediate-edits-editors-limited-count" = "{{PLURAL:$1|Yhtä välissä olevaa versiota|$1 välissä olevaa versiota}} $2+ käyttäjän tekeminä ei näytetä";
-"intermediate-edits-limited-editors-count" = "$1+ välissä olevaa versiota {{PLURAL:$2|toisen käyttäjän tekemänä|$2 käyttäjän tekeminä}} ei näytetä";
 "inuktitut-variants-alert-body" = "Wikipedia-sovellus tukee nyt seuraavia inuktitut-muunnelmia ensi- tai toissijaisina kielinä sovelluksessa, mikä helpottaa lukemista, etsimistä ja muokkaamista näillä versioilla:\n\nᐃᓄᒃᑎᑐᑦ ᑎᑎᕋᐅᓯᖅ ᓄᑖᖅ Inuktitut, tavumerkistö (ike-cans)\nInuktitut ilisautik, Inuktitut, latinalaiset aakkoset (ike-latn)";
 "inuktitut-variants-alert-title" = "Päivitykset Inuktitut-varianttien tukeen";
 "kazakh-variants-alert-body" = "Wikipedia-sovellus tukee nyt seuraavia kazakin muunnelmia ensi- tai toissijaisina kielinä sovelluksessa, mikä helpottaa lukemista, etsimistä ja muokkaamista näillä versioilla:\n\nҚазақша Kazakh (kk)\nҚазақша Кирил Kazakh, kyrillinen kirjaimisto (kk-cyrl)\nqazaqşa latina kazakstani, latinalainen kirjaimisto (kk-latn)\nتوتە قازاقشا Kazakh, arabialainen kirjaimisto (kk-arab)";
@@ -579,6 +585,7 @@
 "no-internet-connection" = "Ei Internet-yhteyttä";
 "no-internet-connection-article-reload" = "Uudempi versio tästä artikkelista saattaa olla saatavilla, mutta sitä ei voida ladata ilman yhteyttä Internetiin";
 "no-internet-connection-article-reload-button" = "Palaa viimeksi tallennettuun versioon";
+"notifications-center-alert" = "Hälytys";
 "notifications-center-cell-notification-type-accessibility-label-format" = "$1-ilmoitus";
 "notifications-center-change-password" = "Vaihda salasana";
 "notifications-center-checking-for-notifications" = "Tarkistetaan ilmoituksia...";
@@ -629,7 +636,10 @@
 "notifications-center-onboarding-modal-notifications-alerts-message" = "Ilmoitukset auttavat sinua pysymään ajan tasalla muokkauksiisi ja tunnukseesi liittyvistä ajankohtaisista asioista.";
 "notifications-center-onboarding-modal-notifications-alerts-title" = "Ilmoitukset ja hälytykset";
 "notifications-center-onboarding-modal-project-inboxes-message" = "Lue kaikki lukemattomat viestisi erikielisistä Wikipedioista ja Wikimedia-projekteista yhdessä paikassa.";
+"notifications-center-onboarding-modal-push-notifications-title" = "Push-ilmoitukset";
 "notifications-center-onboarding-modal-title" = "Muokkausilmoitukset";
+"notifications-center-onboarding-panel-heading" = "Otetaanko push-ilmoitukset käyttöön?";
+"notifications-center-onboarding-panel-primary-button" = "Ota push-ilmoitukset käyttöön";
 "notifications-center-onboarding-panel-secondary-button" = "Ei kiitos";
 "notifications-center-project-filters-accessibility-label" = "Projektisuodatin";
 "notifications-center-status-all" = "Kaikki";
@@ -666,11 +676,19 @@
 "notifications-center-type-item-description-mentions" = "Maininnat";
 "notifications-center-type-item-description-welcome-verbose" = "Tervetuloviesti";
 "notifications-center-type-title-connection-with-wikidata" = "Yhteys Wikidataan";
+"notifications-center-type-title-edit-reverted" = "Muokkaus palautettu";
+"notifications-center-type-title-edit-summary-mention" = "Muokkausyhteenvetomaininta";
+"notifications-center-type-title-email-from-other-user" = "Sähköposti toiselta käyttäjältä";
 "notifications-center-type-title-login-attempts" = "Kirjautumisyritykset";
+"notifications-center-type-title-login-attempts-subtitle" = "Epäonnistuneet kirjautumisyritykset tilillesi";
 "notifications-center-type-title-login-success" = "Kirjautuminen onnistui";
 "notifications-center-type-title-other" = "Muu";
 "notifications-center-type-title-page-link" = "Sivulinkki";
+"notifications-center-type-title-talk-page-mention" = "Keskustelusivumaininta";
 "notifications-center-type-title-thanks" = "Kiitokset";
+"notifications-center-type-title-translation-milestone" = "Käännösvirstanpylväs";
+"notifications-center-type-title-user-rights-change" = "Käyttäjäoikeuksien muutos";
+"notifications-center-type-title-user-talk-page-messsage" = "Viesti keskustelusivulle";
 "notifications-center-type-title-welcome" = "Tervetuloa";
 "notifications-push-fallback-body-text" = "Uusi toiminta Wikipediassa";
 "notifications-push-talk-body-format" = "{{PLURAL:$1|$1 uusi viesti|$1 uutta viestiä}} sivulla $2";
@@ -704,12 +722,9 @@
 "page-history-stats-text" = "{{PLURAL:$1|$1 muokkaus|$1 muokkausta}} vuoden $2 jälkeen";
 "page-history-user-edits" = "käyttäjiltä";
 "page-issues" = "Sivun ongelmat";
-"page-location" = "Tarkastele kartalla";
-"page-protected-autoconfirmed" = "Tämä sivu on osittain suojattu.";
+"page-location" = "Näytä kartalla";
 "page-protected-can-not-edit" = "Sinulla ei ole oikeuksia muokata tätä sivua";
 "page-protected-can-not-edit-title" = "Tämä sivu on suojattu";
-"page-protected-other" = "Sivun suojaustaso on: $1";
-"page-protected-sysop" = "Tämä sivu on täysin suojattu.";
 "page-similar-titles" = "Samankaltaiset sivut";
 "panel-compare-revisions-text" = "Muutosten vertailulla on helppo saada kuva artikkeliin tehdyistä muutoksista. Toiminto korostaa artikkelista kohdat, joihin on tehty muutoksia.";
 "panel-compare-revisions-title" = "Versioiden vertailu";
@@ -768,7 +783,7 @@
 "reading-list-add-generic-hint-title" = "Lisätäänkö artikkeli lukulistaan?";
 "reading-list-add-hint-title" = "Lisäätäänkö “$1” lukulistaan?";
 "reading-list-add-saved-button-title" = "Kyllä, lisää ne lukulistoihini";
-"reading-list-add-saved-subtitle" = "Nämä ovat Wikipedia-sovellukseesi tallennettuja artikkeleita. Haluaisitko pitää ne ja yhdistää tunnuksellesi synkronoituihin lukulistoihin.";
+"reading-list-add-saved-subtitle" = "Nämä ovat Wikipedia-sovellukseesi tallennettuja artikkeleita. Säilytetäänkö ne tunnukselle tallennettujen artikkelien rinnalla?";
 "reading-list-add-saved-title" = "Löydetyt tallennetut artikkelit";
 "reading-list-api-error-entry-limit" = "Tätä merkintää ei ole synkronoitu koska olet saavuttanut merkintöjen lukumäärän rajan tässä listassa.";
 "reading-list-api-error-generic" = "Odottamaton virhe tapahtui lukulistaasi synkronoidessa.";
@@ -785,7 +800,7 @@
 "reading-list-exists-with-same-name" = "Lukulistan nimi on jo käytössä";
 "reading-list-generic-error" = "Odottamaton virhe tapahtui lukulistaasi päivittäessä.";
 "reading-list-keep-button-title" = "Kyllä, säilytä artikkelit laitteessa";
-"reading-list-keep-subtitle" = "Artikkelit on synkronoitu Wikipedia-tunnukseesi. Haluaisitko säilyttää ne tässä laitteessa uloskirjautumisen jälkeen?";
+"reading-list-keep-subtitle" = "Artikkelit on synkronoitu Wikipedia-tunnukseesi. Säilytetäänkö ne tässä laitteessa uloskirjautumisen jälkeen?";
 "reading-list-keep-sync-disabled-additional-subtitle" = "Synkronoinnin poistaminen käytöstä poistaa nämä artikkelit tunnukseltasi. Jos poistat ne laitteeltasi, niitä ei voida palauttaa kytkemällä synkronointia takaisin päälle myöhemmin.";
 "reading-list-keep-sync-disabled-remove-article-button-title" = "Ei, poista artikkelit laitteesta ja Wikipedia-tunnukseltani";
 "reading-list-keep-title" = "Säilytetäänkö tallennetut artikkelit laitteessa?";
@@ -952,69 +967,65 @@
 "table-of-contents-hide-button-label" = "Piilota sisällysluettelo";
 "table-of-contents-subheading-label" = "Alaotsikko $1";
 "talk-page-active-users-accessibilty-label" = "{{PLURAL:$1|$1 aktiivinen käyttäjä|$1 aktiivista käyttäjää}}";
-"talk-page-add-discussion-accessibility-label" = "Lisää keskustelu";
 "talk-page-add-topic-button" = "Lisää aihe";
 "talk-page-archives" = "Arkistot";
 "talk-page-article-about" = "Tietoja keskustelusivuista";
 "talk-page-change-language" = "Vaihda kieli";
-"talk-page-discussion-accessibility-hint" = "Kaksoisnapauta avataksesi keskusteluketjun";
 "talk-page-discussion-read-accessibility-label" = "Lue";
 "talk-page-discussion-unread-accessibility-label" = "Lukematon";
 "talk-page-error-alert-title" = "Odottamaton virhe";
+"talk-page-error-loading-subtitle" = "Jotain meni vikaan.";
 "talk-page-error-loading-title" = "Keskustelusivun lataaminen epäonnistui";
-"talk-page-error-unable-to-post-reply" = "Ei Internet-yhteyttä. Vastausta ei voi lähettää.";
-"talk-page-error-unable-to-post-topic" = "Ei Internet-yhteyttä. Keskustelua ei voi lähettää.";
 "talk-page-find-in-page-button" = "Etsi sivulta";
-"talk-page-info-active-conversations" = "Keskustelut kieliversion $1 Wikipediassa";
-"talk-page-info-active-conversations-generic" = "Aktiiviset keskustelut Wikipediassa";
-"talk-page-link-user-action-sheet-app" = "Näytä käyttäjän keskustelusivu sovelluksessa";
-"talk-page-link-user-action-sheet-safari" = "Näytä käyttäjäsivu Safarissa";
-"talk-page-link-user-action-sheet-title" = "Käyttäjäsivut";
 "talk-page-menu-open-all" = "Avaa kaikki aiheet";
 "talk-page-new-banner-subtitle" = "Olemme kaikki tavallisia ihmisiä";
 "talk-page-new-banner-title" = "Olethan ystävällinen!";
-"talk-page-new-body-textfield-accessibility-label" = "Keskustelurunko";
-"talk-page-new-reply-body-accessibility-label" = "Kirjoita vastaus";
-"talk-page-new-reply-body-placeholder-text" = "Kirjoita vastaus";
 "talk-page-new-reply-success-text" = "Vastauksesi julkaistiin onnistuneesti";
-"talk-page-new-subject-clear-button-accessibility" = "Tyhjennä aihe";
-"talk-page-new-subject-placeholder-text" = "Aihe";
-"talk-page-new-subject-textfield-accessibility-label" = "Aihe";
-"talk-page-new-topic-body-placeholder-text" = "Kirjoita uusi keskusteluviesti";
 "talk-page-new-topic-success-text" = "Keskustelusi julkaistiin onnistuneesti";
-"talk-page-new-topic-title" = "Uusi keskustelu";
 "talk-page-page-info" = "Sivun tiedot";
 "talk-page-permanent-link" = "Ikilinkki";
-"talk-page-publish-terms-and-licenses" = "Tallentamalla hyväksyt $1Käyttöehdot$2 sekä kirjoituksen julkaisemisen $3CC BY-SA 3.0$4 ja $5GFDL$6 -lisensseillä.";
-"talk-page-read-in-web" = "Lue verkossa";
+"talk-page-publish-reply-error-subtitle" = "Tarkista internetyhteytesi.";
+"talk-page-publish-reply-error-title" = "Kommenttiasi ei voitu julkaista.";
+"talk-page-publish-topic-error-title" = "Uutta aihetta ei voitu julkaista.";
+"talk-page-read-in-web" = "Lue selaimessa";
 "talk-page-related-links" = "Tänne viittaavat sivut";
+"talk-page-replies-count-accessibilty-label" = "{{PLURAL:$1|$1 vastaus|$1 vastausta}}";
 "talk-page-reply-button" = "Vastaa";
+"talk-page-reply-button-accessibility-label" = "Vastaa käyttäjälle $1";
 "talk-page-reply-placeholder-format" = "Vastaa käyttäjälle $1";
 "talk-page-reply-terms-and-licenses" = "Huomaa, että vastauksesi allekirjoitetaan automaattisesti käyttäjänimelläsi. Tallentamalla muutokset hyväksyt $1käyttöehdot$2 ja suostut julkaisemaan muutoksesi $3CC BY-SA 3.0$4- ja $5GFDL$6-lisensseillä.";
-"talk-page-reply-title" = "Vastaa";
 "talk-page-revision-history" = "Muutoshistoria";
+"talk-page-rply-close-button-accessibility-hint" = "Sulje vastausnäkymä";
 "talk-page-share-button" = "Jaa keskustelusivu";
 "talk-page-subscribe-to-topic" = "Tilaa";
 "talk-page-subscribed-alert-subtitle" = "Saat ilmoituksia uusista kommenteista tässä aiheessa.";
+"talk-page-subscribed-alert-title" = "Tilaus tehty!";
+"talk-page-subscription-failed-alert" = "Aiheen tilaaminen epäonnistui, yritä uudelleen.";
 "talk-page-title-article-talk" = "Artikkelikeskustelu";
 "talk-page-title-user-talk" = "Keskustelu käyttäjästä";
-"talk-page-topic-title" = "Keskustelu";
+"talk-page-topic-close-button-hint" = "Sulje uusi aihe";
+"talk-page-topic-compose-terms-and-licenses" = "Julkaisemalla hyväksyt $1Käyttöehdot$2 sekä kirjoituksen julkaisemisen $3CC BY-SA 3.0$4 ja $5GFDL$6 -lisensseillä.";
 "talk-page-unsubscribe-to-topic" = "Peruuta tilaus";
+"talk-page-unsubscribed-alert-subtitle" = "Et saa enää ilmoituksia uusista tämän aiheen kommenteista.";
+"talk-page-unsubscribed-alert-title" = "Olet peruuttanut tilauksen.";
+"talk-page-unsubscription-failed-alert" = "Aiheen tilauksen peruuttaminen epäonnistui, yritä uudelleen.";
 "talk-page-user-about" = "Tietoja käyttäjien keskustelusivuista";
 "talk-page-user-contributions" = "Muokkaukset";
+"talk-pages-archives-empty-title" = "Arkistoituja sivuja ei löytynyt.";
 "talk-pages-archives-view-title" = "Arkistot";
 "talk-pages-coffee-roll-read-more" = "Lue lisää";
 "talk-pages-comment-added-alert-title" = "Kommenttisi lisättiin";
 "talk-pages-compose-close-confirmation-keep" = "Jatka muokkaamista";
-"talk-pages-empty-view-body-article" = "Keskustelusivut ovat paikkoja, jossa ihmiset keskustelevat siitä, miten tehdä Wikipedian sisällöstä parhainta mahdollista. **Aloita lisäämällä uusi keskusteluaihe** saadaksesi yhteyden muihin Wikipedian käyttäjäyhteisön jäseniin ja tehdäksesi yhteistyötä heidän kanssaan.";
-"talk-pages-empty-view-body-user" = "Keskustelusivut ovat paikkoja, jossa ihmiset keskustelevat siitä, miten tehdä Wikipedian sisällöstä parhainta mahdollista. Aloita lisäämällä uusi keskusteluaihe saadaksesi yhteyden käyttäjään $1 ja tehdäksesi yhteistyötä hänen kanssaan. Sanomisesi tässä tulee julkisesti muiden nähtäville.";
+"talk-pages-empty-view-body-article" = "Parhaat Wikipedia-artikkelit syntyvät yhteistyöllä. Näillä sivuilla käyttäjät keskustella artikkelin sisällöstä ja kehittämisestä. **Aloita luomalla uusi aihe**.";
+"talk-pages-empty-view-body-user" = "Parhaat Wikipedia-artikkelit syntyvät yhteistyöllä. Tällä sivulla voit keskustella julkisesti käyttäjän $1 kanssa, ja myös muut voivat osallistua keskusteluun.";
 "talk-pages-empty-view-button-article-add-topic" = "Lisää uusi aihe";
 "talk-pages-empty-view-button-user-start-discussion" = "Aloita keskustelu";
 "talk-pages-empty-view-header-article" = "Keskustelu alkaa tästä";
 "talk-pages-empty-view-header-user" = "Aloita keskustelu käyttäjän $1 kanssa";
-"talk-pages-reply-button-title" = "Vastaa tähän keskusteluun";
+"talk-pages-reply-compose-close-confirmation-title" = "Haluatko varmasti hylätä tämän uuden vastauksen?";
 "talk-pages-topic-added-alert-title" = "Aiheesi lisättiin";
 "talk-pages-topic-compose-body-placeholder" = "Kuvaus";
+"talk-pages-topic-compose-body-placeholder-accessibility" = "Aiheen kuvaus";
 "talk-pages-topic-compose-close-confirmation-discard" = "Hylkää vastaus";
 "talk-pages-topic-compose-close-confirmation-title" = "Haluatko varmasti hylätä tämän uuden aiheen?";
 "talk-pages-topic-compose-navbar-title" = "Aihe";
@@ -1050,6 +1061,10 @@
 "vanish-account-warning-title" = "Varoitus";
 "variants-alert-dismiss-button" = "Ei kiitos";
 "variants-alert-preferences-button" = "Tarkista asetuksesi";
+"watch" = "Tarkkaile";
+"watchlist" = "Tarkkailulista";
+"watchlist-user-button-user-contributions" = "Käyttäjän muokkaukset";
+"watchlist-user-button-user-page" = "Käyttäjäsivu";
 "welcome-exploration-explore-feed-description" = "Suositellut luettavat ja pävittäiset artikkelit yhteisöstämme";
 "welcome-exploration-explore-feed-title" = "Tutki syötettä";
 "welcome-exploration-on-this-day-description" = "Matkusta takaisin ajassa ja opi mitä tapahtui tänä päivänä historiassa";

@@ -30,6 +30,7 @@
 // Author: Peter Fernando
 // Author: Raphaelras
 // Author: Rodrigo codignoli
+// Author: Stephanyb76
 // Author: Tks4Fish
 // Author: Tooguether
 // Author: Trooper57
@@ -232,8 +233,9 @@
 "description-welcome-descriptions-title" = "Descrições de artigos";
 "description-welcome-promise-title" = "Ao iniciar, eu prometo não utilizar de forma irresponsável esta funcionalidade";
 "description-welcome-start-editing-button" = "Começar a editar";
-"diff-compare-header-from-info-heading" = "De:";
+"diff-compare-header-from-info-heading" = "Edição anterior";
 "diff-compare-header-heading" = "Comparar revisões";
+// Fuzzy
 "diff-compare-header-to-info-heading" = "Para:";
 "diff-compare-title" = "Comparar revisões";
 "diff-context-lines-collapsed-button-title" = "Exibir";
@@ -262,6 +264,7 @@
 "diff-thanks-sent" = "O seu 'Obrigado' foi enviado para $1";
 "diff-thanks-sent-already" = "Você já enviou um \"Obrigado\" por esta edição";
 "diff-thanks-sent-cannot-unsend" = "Os agradecimentos enviados não podem ser desfeitos";
+"diff-undo-success" = "A revisão foi desfeita.";
 "diff-unedited-lines-format" = "{{PLURAL:$1|$1 linha não editada|$1 linhas não editadas}}";
 "dim-images" = "Imagens fracas";
 "edit-bold-accessibility-label" = "Adicionar formatação em negrito";
@@ -545,12 +548,6 @@
 "insert-media-media-settings-title" = "Configurações de mídia";
 "insert-media-title" = "Inserir mídia";
 "insert-media-uploaded-image-title" = "Imagem carregada";
-"intermediate-edits-count" = "{{PLURAL:$1|$1 revisão intermediária|$1 revisões intermediárias}} não mostrado";
-"intermediate-edits-count-limited" = "$1+ revisões intermediárias não mostradas";
-"intermediate-edits-editors-count" = "{{PLURAL:$1|$1 revisão intermediária|$1 revisões intermediárias}} por {{PLURAL:$2|$2 usuário|$2 usuários}} não mostrados";
-"intermediate-edits-editors-count-limited" = "$1+ revisões intermediárias de mais de $2 usuários não mostrados";
-"intermediate-edits-editors-limited-count" = "{{PLURAL:$1|$1 revisão intermediária|$1 revisões intermediárias}} por $2+ usuários não mostrados";
-"intermediate-edits-limited-editors-count" = "$1+ revisões intermediárias por {{PLURAL:$2|$2 usuário|$2 usuários}} não mostrado";
 "inuktitut-variants-alert-body" = "O aplicativo Wikipedia agora suporta as seguintes variantes do Inuctitute como idiomas primários ou secundários dentro do aplicativo, tornando mais fácil ler, pesquisar e editar em suas variantes preferidas:\n\nᐃᓄᒃᑎᑐᑦ ᑎᑎᕋᐅᓯᖅ ᓄᑖᖅ inuctitute silábico (ike-cans)\nInuktitut ilisautik, inuctitute latino (ike-latn)";
 "inuktitut-variants-alert-title" = "Atualizações para suporte a variantes de inuctitute";
 "kazakh-variants-alert-body" = "O aplicativo Wikipedia agora oferece suporte às seguintes variantes do Cazaque como idiomas primários ou secundários dentro do aplicativo, tornando mais fácil ler, pesquisar e editar em suas variantes preferidas:\n\nҚазақша Cazaque (kk)\nҚазақша Кирил Cazaque cirílico (kk-cyrl)\nqazaqşa latin Cazaque latino (kk-latn)\nتوتە قازاقشا Cazaque árabe (kk-arab)";
@@ -585,6 +582,7 @@
 "menu-cancel-accessibility-label" = "Cancelar";
 "more-languages-tooltip-description" = "Pesquise na Wikipédia em mais de 300 idiomas";
 "more-languages-tooltip-title" = "Adicionar idiomas";
+"more-menu" = "Mais";
 "move-articles-to-reading-list" = "Mover $1 {{PLURAL:$1|artigo|artigos}} para a lista de leitura";
 "navbar-title-mode-edit-wikitext-preview" = "Pré-visualizar";
 "nearby-distance-label-feet" = "$1 pés";
@@ -754,11 +752,8 @@
 "page-history-user-edits" = "edições de usuário";
 "page-issues" = "Problemas da página";
 "page-location" = "Ver no mapa";
-"page-protected-autoconfirmed" = "Esta página foi semiprotegida.";
 "page-protected-can-not-edit" = "Você não tem permissão para editar esta página";
 "page-protected-can-not-edit-title" = "Esta página está protegida";
-"page-protected-other" = "Esta página está protegida para os seguintes níveis: $1";
-"page-protected-sysop" = "Esta página foi totalmente protegida.";
 "page-similar-titles" = "Páginas similares";
 "panel-compare-revisions-text" = "Comparar revisões ajuda a mostrar como um artigo mudou ao longo do tempo. A comparação de duas revisões de um artigo mostrará a diferença entre essas revisões, destacando qualquer conteúdo que foi alterado.";
 "panel-compare-revisions-title" = "Comparando revisões";
@@ -1010,50 +1005,30 @@
 "tajik-variants-alert-body" = "O aplicativo da Wikipédia agora suporta as seguintes variantes tadjique como idiomas principais ou secundários dentro do aplicativo, tornando mais fácil ler, editar e pesquisar em suas variantes preferidas:\n\nтоҷикӣ кирилликӣ Tajik, Cirílico (tg-cyrl)\ntojikī lotinī Tajik, Latino (tg-latn)";
 "tajik-variants-alert-title" = "Atualizações para o suporte da variante tajique";
 "talk-page-active-users-accessibilty-label" = "$1 {{PLURAL:$1|usuário ativo|usuários ativos}}";
-"talk-page-add-discussion-accessibility-label" = "Adicionar discussão";
 "talk-page-add-topic-button" = "Adicionar tópico";
 "talk-page-archives" = "Arquivos";
 "talk-page-article-about" = "Sobre as páginas de discussão";
 "talk-page-change-language" = "Alterar idioma";
 "talk-page-collapse-thread-button" = "Recolher tópico";
-"talk-page-discussion-accessibility-hint" = "Toque duas vezes para abrir o tópico de discussão";
 "talk-page-discussion-read-accessibility-label" = "Ler";
-"talk-page-discussion-read-ipa-accessibility-attribute" = "ˈlidu";
 "talk-page-discussion-unread-accessibility-label" = "Não lidas";
-"talk-page-discussion-unread-ipa-accessibility-attribute" = "ˈnɐ̃w̃  ˈlidu";
 "talk-page-error-alert-subtitle" = "O aplicativo recebeu uma resposta inesperada do servidor. Por favor, tente novamente mais tarde.";
 "talk-page-error-alert-title" = "Erro inesperado";
 "talk-page-error-loading-subtitle" = "Algo deu errado.";
 "talk-page-error-loading-title" = "Não foi possível carregar a página de discussão";
-"talk-page-error-unable-to-post-reply" = "Nenhuma conexão com a internet. Não é possível postar resposta.";
-"talk-page-error-unable-to-post-topic" = "Nenhuma conexão com a internet. Não é possível postar a discussão.";
 "talk-page-expand-thread-button" = "Expandir tópicos";
 "talk-page-find-in-page-button" = "Encontrar na página";
-"talk-page-info-active-conversations" = "Conversas ativas em $1 Wikipédia";
-"talk-page-info-active-conversations-generic" = "Conversas ativas na Wikipédia";
-"talk-page-link-user-action-sheet-app" = "Visualizar a página de discussão do usuário no aplicativo";
-"talk-page-link-user-action-sheet-safari" = "Ver página do usuário no Safari";
-"talk-page-link-user-action-sheet-title" = "Páginas de usuário";
 "talk-page-menu-open-all" = "Abrir todos os tópicos";
 "talk-page-new-banner-subtitle" = "Lembre-se, somos todos humanos aqui";
 "talk-page-new-banner-title" = "Por favor seja gentil";
-"talk-page-new-body-textfield-accessibility-label" = "Corpo de discussão";
-"talk-page-new-reply-body-accessibility-label" = "Compor resposta";
-"talk-page-new-reply-body-placeholder-text" = "Compor resposta";
 "talk-page-new-reply-success-text" = "Sua resposta foi publicada com sucesso";
-"talk-page-new-subject-clear-button-accessibility" = "Limpar assunto";
-"talk-page-new-subject-placeholder-text" = "Assunto";
-"talk-page-new-subject-textfield-accessibility-label" = "Assunto";
-"talk-page-new-topic-body-placeholder-text" = "Compor nova discussão";
 "talk-page-new-topic-success-text" = "Sua discussão foi publicada com sucesso";
-"talk-page-new-topic-title" = "Nova discussão";
 "talk-page-onboarding-button-accessibility-label" = "Dois toques para voltar à resposta";
 "talk-page-overflow-menu-accessibility" = "Mais opções da página de discussão";
 "talk-page-page-info" = "Informações da página";
 "talk-page-permanent-link" = "Link permanente";
 "talk-page-publish-reply-error-subtitle" = "Verifique a sua conexão com a internet, por favor.";
 "talk-page-publish-reply-error-title" = "Não foi possível publicar o seu comentário.";
-"talk-page-publish-terms-and-licenses" = "Ao salvar as alterações, você concorda com os $1Termos de Uso$2 e concorda em liberar sua contribuição sob as licenças de $3CC BY-SA 3.0 $4 e $5GFDL$6.";
 "talk-page-publish-topic-error-title" = "Não foi possível publicar o tópico novo.";
 "talk-page-read-in-web" = "Ler na web";
 "talk-page-related-links" = "Páginas afluentes";
@@ -1063,7 +1038,6 @@
 "talk-page-reply-depth-accessibility-label" = "Profundidade da resposta: $1";
 "talk-page-reply-placeholder-format" = "Responder a $1";
 "talk-page-reply-terms-and-licenses" = "Note que a sua resposta será assinada automaticamente com o seu nome de usuário. Ao salvar as mudanças, concorda com os $1termos de uso$2 e aceita publicar a sua contribuição nos termos das licenças $3CC BY-SA 3.0$4 e $5GFDL$6.";
-"talk-page-reply-title" = "Responder";
 "talk-page-revision-history" = "Histórico de revisão";
 "talk-page-rply-close-button-accessibility-hint" = "Fechar visualização de resposta";
 "talk-page-share-button" = "Compartilhar página de discussão";
@@ -1075,7 +1049,6 @@
 "talk-page-title-user-talk" = "Discussão do usuário";
 "talk-page-topic-close-button-hint" = "Fechar novo tópico";
 "talk-page-topic-compose-terms-and-licenses" = "Ao salvar as mudanças você concorda com os $1termos de uso$2 e aceita de forma irrevogável publicar a sua contribuição nos termos das licenças $3CC BY-SA 3.0$4 e $5GFDL$6.";
-"talk-page-topic-title" = "Discussão";
 "talk-page-unsubscribe-to-topic" = "Cancelar inscrição";
 "talk-page-unsubscribed-alert-subtitle" = "Você não receberá mais notificações sobre novos comentários neste tópico";
 "talk-page-unsubscribed-alert-title" = "Cancelar inscrição.";
@@ -1093,7 +1066,6 @@
 "talk-pages-empty-view-button-user-start-discussion" = "Iniciar uma discussão";
 "talk-pages-empty-view-header-article" = "A conversa começa aqui";
 "talk-pages-empty-view-header-user" = "Começar uma conversa com $1";
-"talk-pages-reply-button-title" = "Responder a esta discussão";
 "talk-pages-reply-compose-close-confirmation-title" = "Tem certeza de que deseja descartar esta nova resposta?";
 "talk-pages-topic-added-alert-title" = "O seu tópico foi adicionado";
 "talk-pages-topic-compose-body-placeholder" = "Descrição";
@@ -1151,6 +1123,9 @@
 "vanishing-request-email-title" = "Pedido de desaparecimento de cortesia";
 "variants-alert-dismiss-button" = "Não, obrigado";
 "variants-alert-preferences-button" = "Revise suas preferências";
+"watchlist-filter" = "Filtro";
+"watchlist-user-button-user-contributions" = "Contribuições do usuário";
+"watchlist-user-button-user-page" = "Página de usuário";
 "welcome-exploration-explore-feed-description" = "Leitura recomendada e artigos diários da nossa comunidade";
 "welcome-exploration-explore-feed-title" = "Feed de explorar";
 "welcome-exploration-on-this-day-description" = "Volte no tempo para aprender o que aconteceu hoje na história";

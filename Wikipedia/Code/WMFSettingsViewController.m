@@ -7,7 +7,6 @@
 #import "AboutViewController.h"
 #import "UIBarButtonItem+WMFButtonConvenience.h"
 #import "UIViewController+WMFStoryboardUtilities.h"
-#import "WMFDailyStatsLoggingFunnel.h"
 
 #pragma mark - Static URLs
 
@@ -181,33 +180,27 @@ static NSString *const WMFSettingsURLDonation = @"https://donate.wikimedia.org/?
 
 - (void)disclosureSwitchChanged:(UISwitch *)disclosureSwitch {
     WMFSettingsMenuItemType type = (WMFSettingsMenuItemType)disclosureSwitch.tag;
-    [self updateStateForMenuItemType:type isSwitchOnValue:disclosureSwitch.isOn];
     [self logNavigationEventsForMenuType:type];
-    [self loadSections];
+    [self updateStateForMenuItemType:type isSwitchOnValue:disclosureSwitch.isOn completion:^{
+        [self loadSections];
+    }];
 }
 
 #pragma mark - Switch tap handling
 
-- (void)updateStateForMenuItemType:(WMFSettingsMenuItemType)type isSwitchOnValue:(BOOL)isOn {
+- (void)updateStateForMenuItemType:(WMFSettingsMenuItemType)type isSwitchOnValue:(BOOL)isOn completion:(void (^)(void))completion {
     switch (type) {
         case WMFSettingsMenuItemType_SendUsageReports: {
-            WMFEventLoggingService *eventLoggingService = [WMFEventLoggingService sharedInstance];
-            WMFMetricsClientBridge *metricsClientBridge = [WMFMetricsClientBridge sharedInstance];
-            NSUserDefaults.standardUserDefaults.wmf_sendUsageReports = isOn;
             if (isOn) {
-                [eventLoggingService reset];
-                [metricsClientBridge reset];
-                [[WMFDailyStatsLoggingFunnel shared] logAppNumberOfDaysSinceInstall];
-                [[SessionsFunnel shared] logSessionStart];
+                [[SessionsFunnel shared] settingsLoggingToggledOn];
                 [[UserHistoryFunnel shared] logStartingSnapshot];
             } else {
-                [[SessionsFunnel shared] logSessionEnd];
                 [[UserHistoryFunnel shared] logSnapshot];
-                [eventLoggingService reset];
-                [metricsClientBridge reset];
+                [[SessionsFunnel shared] settingsLoggingToggledOffWithCompletion:completion];
             }
         } break;
         default:
+            completion();
             break;
     }
 }
@@ -338,8 +331,8 @@ static NSString *const WMFSettingsURLDonation = @"https://donate.wikimedia.org/?
             break;
     }
 
-    if (cell.tag != WMFSettingsMenuItemType_SendUsageReports) { // logged elsewhere via disclosureSwitchChanged:
-        [self logNavigationEventsForMenuType:cell.tag];
+    if (cell.tag != WMFSettingsMenuItemType_SendUsageReports) {
+            [self logNavigationEventsForMenuType:cell.tag];
     }
 
     [self.tableView deselectRowAtIndexPath:indexPath
@@ -396,14 +389,46 @@ static NSString *const WMFSettingsURLDonation = @"https://donate.wikimedia.org/?
     message = [NSString localizedStringWithFormat:message, bytesString];
 
     UIAlertController *sheet = [UIAlertController alertControllerWithTitle:WMFLocalizedStringWithDefaultValue(@"settings-clear-cache-are-you-sure-title", nil, nil, @"Clear cached data?", @"Title for the confirmation presented to the user to verify they are sure they want to clear clear cached data.") message:message preferredStyle:UIAlertControllerStyleAlert];
+    typeof(self) __weak weakSelf = self;
     [sheet addAction:[UIAlertAction actionWithTitle:WMFLocalizedStringWithDefaultValue(@"settings-clear-cache-ok", nil, nil, @"Clear cache", @"Confirm action to clear cached data")
                                               style:UIAlertActionStyleDestructive
                                             handler:^(UIAlertAction *_Nonnull action) {
-                                                [self.dataStore clearTemporaryCache];
+                                                [weakSelf clearCache];
                                             }]];
     [sheet addAction:[UIAlertAction actionWithTitle:WMFLocalizedStringWithDefaultValue(@"settings-clear-cache-cancel", nil, nil, @"Cancel", @"Cancel action to clear cached data {{Identical|Cancel}}") style:UIAlertActionStyleCancel handler:NULL]];
 
     [self presentViewController:sheet animated:YES completion:NULL];
+}
+
+- (void)clearCache {
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showClearCacheInProgressBanner) object:nil];
+    [self performSelector:@selector(showClearCacheInProgressBanner) withObject:nil afterDelay:1.0];
+    
+    [self.dataStore clearTemporaryCache];
+    
+    WMFDatabaseHousekeeper *databaseHousekeeper = [WMFDatabaseHousekeeper new];
+    WMFNavigationStateController *navigationStateController = [[WMFNavigationStateController alloc] initWithDataStore:self.dataStore];
+    
+    [self.dataStore performBackgroundCoreDataOperationOnATemporaryContext:^(NSManagedObjectContext * _Nonnull moc) {
+        NSError *housekeepingError = nil;
+        [databaseHousekeeper performHousekeepingOnManagedObjectContext:moc navigationStateController:navigationStateController cleanupLevel:WMFCleanupLevelHigh error:&housekeepingError];
+        if (housekeepingError) {
+            DDLogError(@"Error on cleanup: %@", housekeepingError);
+            housekeepingError = nil;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showClearCacheInProgressBanner) object:nil];
+            [[WMFAlertManager sharedInstance] showAlert:WMFLocalizedStringWithDefaultValue(@"clearing-cache-complete", nil, nil, @"Clearing cache complete.", @"Title of banner that appears after clearing cache completes. Clearing cache is a button triggered by the user in Settings.") sticky:NO dismissPreviousAlerts:YES tapCallBack:nil];
+        });
+    }];
+
+    [SharedContainerCacheHousekeeping deleteStaleCachedItemsIn:SharedContainerCacheCommonNames.talkPageCache cleanupLevel:WMFCleanupLevelHigh];
+}
+
+- (void)showClearCacheInProgressBanner {
+    [[WMFAlertManager sharedInstance] showAlert:WMFLocalizedStringWithDefaultValue(@"clearing-cache-in-progress", nil, nil, @"Clearing cache in progress.", @"Title of banner that appears when a user taps clear cache button in Settings. Informs the user that clearing of cache is in progress.") sticky:NO dismissPreviousAlerts:YES tapCallBack:nil];
 }
 
 - (void)logout {

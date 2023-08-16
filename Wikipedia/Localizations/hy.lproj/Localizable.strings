@@ -157,10 +157,8 @@
 "page-history-minor-edits" = "չնչին խմբագրումներ";
 "page-history-revision-author-accessibility-label" = "Հեղինակ. 1";
 "page-history-revision-minor-edit-accessibility-label" = "չնչին խմբագրում";
-"page-protected-autoconfirmed" = "Այս էջը մասամբ պաշտպանված է:";
 "page-protected-can-not-edit" = "Դուք իրավունք չունեք խմբագրել այս էջը:";
 "page-protected-can-not-edit-title" = "Այս էջը պաշտպանված է";
-"page-protected-sysop" = "Այս էջն ամբողջությամբ պաշտպանված է։";
 "places-accessibility-group" = "$1 հոդվածներ";
 "places-filter-button-title" = "Զտիչ";
 "places-search-default-text" = "Որոնել վայրեր";
@@ -193,11 +191,8 @@
 "table-of-contents-close-accessibility-hint" = "Փակել";
 "table-of-contents-heading" = "Բովանդակություն";
 "talk-page-discussion-read-accessibility-label" = "Կարդալ";
-"talk-page-link-user-action-sheet-title" = "Մասնակցային էջեր";
-"talk-page-reply-title" = "Պատասխան";
 "talk-page-subscribe-to-topic" = "Բաժանորդագրվել";
 "talk-page-title-article-talk" = "Հոդվածի քննարկում";
-"talk-page-topic-title" = "Քննարկում";
 "talk-pages-topic-reply-onboarding-title" = "Քննարկման էջեր";
 "talk-pages-view-title" = "Քննարկում";
 "theme-black-display-name" = "Սև";

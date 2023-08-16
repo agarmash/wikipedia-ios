@@ -3,6 +3,7 @@
 // Author: Enolp
 // Author: Fitoschido
 // Author: Macofe
+// Author: McDutchie
 // Author: Mhurd
 // Author: Nemo bis
 // Author: Tokvo
@@ -154,8 +155,10 @@
 "description-welcome-descriptions-title" = "Descripciones del títulu";
 "description-welcome-promise-title" = "De mano, prometo nun abusar d'esta carauterística";
 "description-welcome-start-editing-button" = "Principiar a editar";
+// Fuzzy
 "diff-compare-header-from-info-heading" = "De:";
 "diff-compare-header-heading" = "Comparar revisiones";
+// Fuzzy
 "diff-compare-header-to-info-heading" = "A:";
 "diff-compare-title" = "Comparar revisiones";
 "diff-context-lines-collapsed-button-title" = "Amosar";
@@ -272,7 +275,7 @@
 "field-backup-token-title" = "Códigu de respaldu";
 "field-captcha-placeholder" = "Testu CAPTCHA";
 "field-captcha-title" = "Escribe'l testu que ves arriba";
-"field-email-placeholder" = "exemplu@exemplu.ast";
+"field-email-placeholder" = "exemplu@example.org";
 "field-email-title" = "Corréu electrónicu";
 "field-email-title-optional" = "Corréu electrónicu (opcional)";
 "field-new-password-confirm-placeholder" = "escribe otra vuelta la contraseña nueva";
@@ -361,11 +364,8 @@
 "on-this-day-sub-title-for-date-from-language-wikipedia" = "$1 na Wikipedia en $1";
 "on-this-day-title" = "Tal día como güei";
 "original-tab-button-popover-description" = "Toca na «W» pa volver a la llingüeta na que principiasti";
-"page-protected-autoconfirmed" = "Esta páxina ta semiprotexida.";
 "page-protected-can-not-edit" = "Nun tienes los permisos pa editar esta páxina";
 "page-protected-can-not-edit-title" = "Esta páxina ta protexida";
-"page-protected-other" = "Esta páxina ta protexida colos siguientes niveles: $1";
-"page-protected-sysop" = "Esta páxina ta protexida dafechu.";
 "pictured" = "con semeya";
 "places-accessibility-clear-saved-searches" = "Llimpiar les guetes guardaes";
 "places-accessibility-group" = "$1 artículos";
