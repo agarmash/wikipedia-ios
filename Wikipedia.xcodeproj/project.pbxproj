@@ -539,6 +539,10 @@
 		67282FBE24855B7B00B73E20 /* ArticleContextMenuPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67282FBC24855B7B00B73E20 /* ArticleContextMenuPresenting.swift */; };
 		67282FBF24855B7B00B73E20 /* ArticleContextMenuPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67282FBC24855B7B00B73E20 /* ArticleContextMenuPresenting.swift */; };
 		67282FC024855B7B00B73E20 /* ArticleContextMenuPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67282FBC24855B7B00B73E20 /* ArticleContextMenuPresenting.swift */; };
+		672BD08D2A8D533C006D6895 /* ApplePayConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 672BD08C2A8D533C006D6895 /* ApplePayConfig.plist */; };
+		672BD08E2A8D533C006D6895 /* ApplePayConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 672BD08C2A8D533C006D6895 /* ApplePayConfig.plist */; };
+		672BD08F2A8D533C006D6895 /* ApplePayConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 672BD08C2A8D533C006D6895 /* ApplePayConfig.plist */; };
+		672BD0902A8D533C006D6895 /* ApplePayConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 672BD08C2A8D533C006D6895 /* ApplePayConfig.plist */; };
 		672C35EB22D8E7CA007B8D46 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C35EA22D8E7C9007B8D46 /* EmptyViewController.swift */; };
 		672C35EC22D8E7D2007B8D46 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C35EA22D8E7C9007B8D46 /* EmptyViewController.swift */; };
 		672C35ED22D8E7D2007B8D46 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C35EA22D8E7C9007B8D46 /* EmptyViewController.swift */; };
@@ -591,11 +595,11 @@
 		675175DE276D3B9700CD2974 /* DisappearingCallbackNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675175DB276D3B9700CD2974 /* DisappearingCallbackNavigationController.swift */; };
 		675175DF276D3B9700CD2974 /* DisappearingCallbackNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675175DB276D3B9700CD2974 /* DisappearingCallbackNavigationController.swift */; };
 		67540CA924D221E3008B2894 /* LocationManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67540CA824D221E3008B2894 /* LocationManagerFactory.swift */; };
+		675A3D6B2A21600100F9B653 /* MediaWikiNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675A3D6A2A21600100F9B653 /* MediaWikiNetworkService.swift */; };
 		675FE07B288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675FE07A288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift */; };
 		675FE07C288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675FE07A288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift */; };
 		675FE07D288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675FE07A288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift */; };
 		675FE07E288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675FE07A288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift */; };
-		675A3D6B2A21600100F9B653 /* MediaWikiNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675A3D6A2A21600100F9B653 /* MediaWikiNetworkService.swift */; };
 		6761AEDA2704BA3800E47BAD /* RemoteNotification+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761AED82704BA3800E47BAD /* RemoteNotification+CoreDataClass.swift */; };
 		6761AEDF2704CF0000E47BAD /* WikimediaProject+RemoteNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761AEDE2704CF0000E47BAD /* WikimediaProject+RemoteNotifications.swift */; };
 		6761AEE12704DE4100E47BAD /* NotificationsCenterCellViewModel+TextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761AEE02704DE4100E47BAD /* NotificationsCenterCellViewModel+TextExtensions.swift */; };
@@ -896,10 +900,6 @@
 		67B64D5D2507E9FD00FA27F3 /* ArticleAsLivingDocSmallEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B64D5B2507E9FD00FA27F3 /* ArticleAsLivingDocSmallEventCollectionViewCell.swift */; };
 		67B64D5E2507E9FD00FA27F3 /* ArticleAsLivingDocSmallEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B64D5B2507E9FD00FA27F3 /* ArticleAsLivingDocSmallEventCollectionViewCell.swift */; };
 		67B64D5F2507E9FD00FA27F3 /* ArticleAsLivingDocSmallEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B64D5B2507E9FD00FA27F3 /* ArticleAsLivingDocSmallEventCollectionViewCell.swift */; };
-		67C5756F2878A2E000C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
-		67C575702878A2E000C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
-		67C575712878A2E000C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
-		67C575722878A2E100C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
 		67B7E77E2988777A00708A81 /* MediaWikiApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B7E7792988768C00708A81 /* MediaWikiApiErrors.swift */; };
 		67BEFFD528AD9DF000606B38 /* TalkPageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BEFFD428AD9DF000606B38 /* TalkPageType.swift */; };
 		67BEFFD628AD9DF000606B38 /* TalkPageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BEFFD428AD9DF000606B38 /* TalkPageType.swift */; };
@@ -910,6 +910,10 @@
 		67C1757728AD4D6000C5ABA4 /* TalkPageDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1757528AD4D6000C5ABA4 /* TalkPageDataController.swift */; };
 		67C1757828AD4D6000C5ABA4 /* TalkPageDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1757528AD4D6000C5ABA4 /* TalkPageDataController.swift */; };
 		67C1757928AD4D6000C5ABA4 /* TalkPageDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C1757528AD4D6000C5ABA4 /* TalkPageDataController.swift */; };
+		67C5756F2878A2E000C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
+		67C575702878A2E000C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
+		67C575712878A2E000C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
+		67C575722878A2E100C3BF70 /* ApplePayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */; };
 		67C6F74E27E2919B00B9C864 /* RemoteNotificationsModelController+TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6F74D27E2919A00B9C864 /* RemoteNotificationsModelController+TestExtensions.swift */; };
 		67C6F75027E293C700B9C864 /* NotificationsCenterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6F74F27E293C700B9C864 /* NotificationsCenterViewModelTests.swift */; };
 		67C6F76827E2E76E00B9C864 /* NotificationsCenterCellViewModelUserTalkMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6F76727E2E76E00B9C864 /* NotificationsCenterCellViewModelUserTalkMessageTests.swift */; };
@@ -4087,6 +4091,9 @@
 		672034E427A2600C007DC24F /* RemoteNotificationsProjectOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsProjectOperation.swift; sourceTree = "<group>"; };
 		672428962362113400490629 /* DiffFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffFetcher.swift; sourceTree = "<group>"; };
 		67282FBC24855B7B00B73E20 /* ArticleContextMenuPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleContextMenuPresenting.swift; sourceTree = "<group>"; };
+		672BD08A2A8D522D006D6895 /* StagingStaging.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StagingStaging.entitlements; sourceTree = "<group>"; };
+		672BD08C2A8D533C006D6895 /* ApplePayConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ApplePayConfig.plist; sourceTree = "<group>"; };
+		672BD0912A8D6214006D6895 /* StagingStagingDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StagingStagingDebug.entitlements; sourceTree = "<group>"; };
 		672C35EA22D8E7C9007B8D46 /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		672D69A3273ABD3600B123B3 /* UINavigationBarAppearance+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBarAppearance+Extensions.swift"; sourceTree = "<group>"; };
 		672D69A8273ACAA100B123B3 /* UITabBarAppearance+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarAppearance+Extensions.swift"; sourceTree = "<group>"; };
@@ -4103,8 +4110,8 @@
 		674E8AB82382DEFF0053D206 /* DiffTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffTransformer.swift; sourceTree = "<group>"; };
 		675175DB276D3B9700CD2974 /* DisappearingCallbackNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisappearingCallbackNavigationController.swift; sourceTree = "<group>"; };
 		67540CA824D221E3008B2894 /* LocationManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerFactory.swift; sourceTree = "<group>"; };
-		675FE07A288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WMFSettingsViewController+ApplePay.swift"; sourceTree = "<group>"; };
 		675A3D6A2A21600100F9B653 /* MediaWikiNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWikiNetworkService.swift; sourceTree = "<group>"; };
+		675FE07A288FA10500EE8E72 /* WMFSettingsViewController+ApplePay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WMFSettingsViewController+ApplePay.swift"; sourceTree = "<group>"; };
 		6761AED82704BA3800E47BAD /* RemoteNotification+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteNotification+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6761AEDE2704CF0000E47BAD /* WikimediaProject+RemoteNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WikimediaProject+RemoteNotifications.swift"; sourceTree = "<group>"; };
 		6761AEE02704DE4100E47BAD /* NotificationsCenterCellViewModel+TextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationsCenterCellViewModel+TextExtensions.swift"; sourceTree = "<group>"; };
@@ -4207,11 +4214,11 @@
 		67B5333B28416A3B00C33E13 /* UserDataExportCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataExportCache.swift; sourceTree = "<group>"; };
 		67B64D562507DE3E00FA27F3 /* ArticleAsLivingDocSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAsLivingDocSectionHeaderView.swift; sourceTree = "<group>"; };
 		67B64D5B2507E9FD00FA27F3 /* ArticleAsLivingDocSmallEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAsLivingDocSmallEventCollectionViewCell.swift; sourceTree = "<group>"; };
-		67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayTextField.swift; sourceTree = "<group>"; };
 		67B7E7792988768C00708A81 /* MediaWikiApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWikiApiErrors.swift; sourceTree = "<group>"; };
 		67BEFFD428AD9DF000606B38 /* TalkPageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkPageType.swift; sourceTree = "<group>"; };
 		67BEFFD928AEDF3600606B38 /* WikimediaProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikimediaProject.swift; sourceTree = "<group>"; };
 		67C1757528AD4D6000C5ABA4 /* TalkPageDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkPageDataController.swift; sourceTree = "<group>"; };
+		67C5756E2878A2E000C3BF70 /* ApplePayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayTextField.swift; sourceTree = "<group>"; };
 		67C6F74D27E2919A00B9C864 /* RemoteNotificationsModelController+TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteNotificationsModelController+TestExtensions.swift"; sourceTree = "<group>"; };
 		67C6F74F27E293C700B9C864 /* NotificationsCenterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCenterViewModelTests.swift; sourceTree = "<group>"; };
 		67C6F76727E2E76E00B9C864 /* NotificationsCenterCellViewModelUserTalkMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsCenterCellViewModelUserTalkMessageTests.swift; sourceTree = "<group>"; };
@@ -8614,11 +8621,14 @@
 		BCA15AE01C0DFCC900D0A3EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				672BD08C2A8D533C006D6895 /* ApplePayConfig.plist */,
 				D8EC3FB61E9BDAAB006712EB /* Staging-Info.plist */,
 				D8A42C2D1E815B0700D8E281 /* User Testing-Info.plist */,
 				0ED79A3B1CB5B507005D9AF5 /* Wikipedia-Info.plist */,
 				83A422B422786E2000BA446A /* Local-Info.plist */,
 				D8CE26B01E698E2500DAE2E0 /* Experimental-Info.plist */,
+				672BD08A2A8D522D006D6895 /* StagingStaging.entitlements */,
+				672BD0912A8D6214006D6895 /* StagingStagingDebug.entitlements */,
 				0E10C4FD1C81046300CEB5C2 /* Wikipedia.entitlements */,
 				D8A42C2F1E815C1300D8E281 /* Wikipedia User Testing.entitlements */,
 				B0E808281C0D07EA0065EBC0 /* Wikipedia-Bridging-Header.h */,
@@ -9991,6 +10001,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8EC3FA81E9BDA35006712EB /* Build configuration list for PBXNativeTarget "Staging" */;
 			buildPhases = (
+				672BD08B2A8D52D5006D6895 /* Copy Apple Pay Config Values */,
 				00966EAB28403D4D006C6E27 /* SwiftLint */,
 				D8EC3DD71E9BDA35006712EB /* Sources */,
 				D8EC3F1D1E9BDA35006712EB /* Frameworks */,
@@ -10408,6 +10419,7 @@
 				B0B4CF0C1CC0501B0051DF7A /* WMFArticleLanguagesSectionHeader.xib in Resources */,
 				67E06919223B32DF008550AC /* FocusNavigationView.xib in Resources */,
 				D82972891E3A49980061550A /* ArticlePopoverViewController.xib in Resources */,
+				672BD08D2A8D533C006D6895 /* ApplePayConfig.plist in Resources */,
 				D8C4D3D31FD5D9260089CEC2 /* TUSafariActivity.bundle in Resources */,
 				0E69CD5B1C8773410095918B /* Launch Screen.storyboard in Resources */,
 				6771C9542509FE6B00A7254B /* ArticleAsLivingDocHeaderView.xib in Resources */,
@@ -10466,6 +10478,7 @@
 				7A741DD2207FB9CC00CBAAE2 /* SearchBarExtendedViewController.xib in Resources */,
 				D8A42BC01E815A9C00D8E281 /* WMFRandomDiceButtonRoll.js in Resources */,
 				83AE1C881F34BB65004B62E0 /* ImageDimmingExampleViewController.xib in Resources */,
+				672BD0902A8D533C006D6895 /* ApplePayConfig.plist in Resources */,
 				D8A42BC21E815A9C00D8E281 /* NotificationBackgroundSuccess.png in Resources */,
 				D8A42BC31E815A9C00D8E281 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				7A9A611B21124CF500403154 /* CreateNewReadingListButtonView.xib in Resources */,
@@ -10587,6 +10600,7 @@
 				7A741DD0207FB9CC00CBAAE2 /* SearchBarExtendedViewController.xib in Resources */,
 				D8CE26471E698E2400DAE2E0 /* WMFRandomDiceButtonRoll.js in Resources */,
 				83AE1C861F34BB64004B62E0 /* ImageDimmingExampleViewController.xib in Resources */,
+				672BD08F2A8D533C006D6895 /* ApplePayConfig.plist in Resources */,
 				D8CE26491E698E2400DAE2E0 /* NotificationBackgroundSuccess.png in Resources */,
 				D8CE264A1E698E2400DAE2E0 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				7A9A611921124CF500403154 /* CreateNewReadingListButtonView.xib in Resources */,
@@ -10708,6 +10722,7 @@
 				7A741DD1207FB9CC00CBAAE2 /* SearchBarExtendedViewController.xib in Resources */,
 				D8EC3F471E9BDA35006712EB /* WMFRandomDiceButtonRoll.js in Resources */,
 				83AE1C871F34BB65004B62E0 /* ImageDimmingExampleViewController.xib in Resources */,
+				672BD08E2A8D533C006D6895 /* ApplePayConfig.plist in Resources */,
 				D8EC3F491E9BDA35006712EB /* NotificationBackgroundSuccess.png in Resources */,
 				D8EC3F4A1E9BDA35006712EB /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				7A9A611A21124CF500403154 /* CreateNewReadingListButtonView.xib in Resources */,
@@ -10912,6 +10927,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n\tswiftlint --fix --config \".swiftlint-autocorrect.yml\" && swiftlint\nelse\n\techo \"warning: SwiftLint not installed, run \\\"scripts/brew_install\\\" script to install\"\nfi\n";
+		};
+		672BD08B2A8D52D5006D6895 /* Copy Apple Pay Config Values */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Apple Pay Config Values";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ApplePayConfigFile=\"${SRCROOT}/Wikipedia/ApplePayConfig.plist\"\n\nif [[ \"StagingDebug\" = \"${CONFIGURATION}\" ]]; then\n    merchantID=$(/usr/libexec/PlistBuddy -c \"Print merchantIDTest\" \"$ApplePayConfigFile\")\n    EntitlementsFile=\"${SRCROOT}/Wikipedia/StagingStagingDebug.entitlements\"\nelif [[ \"Staging\" = \"${CONFIGURATION}\" ]]; then\n    merchantID=$(/usr/libexec/PlistBuddy -c \"Print merchantIDTest\" \"$ApplePayConfigFile\")\n    EntitlementsFile=\"${SRCROOT}/Wikipedia/StagingStaging.entitlements\"\nfi\n\nif [! -f \"$ApplePayConfigFile\"]; then\n\n    if [[ \"StagingDebug\" = \"${CONFIGURATION}\" ]]; then\n        echo \"warning: Unable to find ApplePayConfig. This will cause Apple Pay to fail.\"\n        exit 0\n    elif [[ \"Staging\" = \"${CONFIGURATION}\" ]]; then\n        echo \"error:  Unable to find ApplePayConfig. This will cause Apple Pay to fail.\"\n        exit 1\n    fi\nfi\n\nif [! -f \"$EntitlementsFile\"]; then\n\n    if [[ \"StagingDebug\" = \"${CONFIGURATION}\" ]]; then\n        echo \"warning: Unable to find Entitlements file. This will cause Apple Pay to fail.\"\n        exit 0\n    elif [[ \"Staging\" = \"${CONFIGURATION}\" ]]; then\n        echo \"error: Unable to find Entitlements file. This will cause Apple Pay to fail.\"\n        exit 1\n    fi\nfi\n\nif [ -z \"$merchantID\" ]; then\n    if [[ \"StagingDebug\" = \"${CONFIGURATION}\" ]]; then\n        echo \"warning: Unable to pull merchantID from ApplePayConfig. This will cause Apple Pay to fail.\"\n        exit 0\n    elif [[ \"Staging\" = \"${CONFIGURATION}\" ]]; then\n        echo \"error: Unable to pull merchantID from ApplePayConfig. This will cause Apple Pay to fail.\"\n        exit 1\n    fi\nfi\n\nexistingEntitlementsMerchantID=$(/usr/libexec/PlistBuddy -c \"Print com.apple.developer.in-app-payments:0\" \"$EntitlementsFile\")\nif [ -z \"$existingEntitlementsMerchantID\"]; then\n    /usr/libexec/PlistBuddy -c \"Add :com.apple.developer.in-app-payments: string '$merchantID'\" \"$EntitlementsFile\"\nfi\n    \nInfoPListFile=\"${SRCROOT}/Wikipedia/Staging-Info.plist\"\nexistingInfoPlistMerchantID=$(/usr/libexec/PlistBuddy -c \"Print CustomMerchantID\" \"$InfoPListFile\")\nif [ -z \"$existingInfoPlistMerchantID\"]; then\n    /usr/libexec/PlistBuddy -c \"Add CustomMerchantID string '$merchantID'\" \"$InfoPListFile\"\nfi\n";
 		};
 		D87021721EBA69B7000D02D6 /* Update Localizations */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -19381,7 +19415,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AlphaAppIcon;
-				CODE_SIGN_ENTITLEMENTS = Wikipedia/Wikipedia.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Wikipedia/StagingStagingDebug.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
@@ -19511,7 +19545,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AlphaAppIcon;
-				CODE_SIGN_ENTITLEMENTS = Wikipedia/Wikipedia.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Wikipedia/StagingStaging.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;

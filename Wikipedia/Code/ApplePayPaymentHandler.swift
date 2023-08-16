@@ -12,6 +12,9 @@ class ApplePayPaymentHandler: NSObject {
 
         /// Indicates that the grand total summary item is a negative value.
         case invalidAmount
+        
+        /// Missing Merchant ID in Info.plist
+        case missingMerchantID
 
         /// Indicates that the token was generated incorrectly.
         case invalidToken
@@ -22,6 +25,8 @@ class ApplePayPaymentHandler: NSObject {
                 return WMFLocalizedString("apple-pay-error-invalid-amount", value: "The donation amount entered is invalid.", comment: "Error that presents when the user enters an invalid donation amount.")
             case .invalidToken:
                 return "The Apple Pay token is invalid. Make sure you are using physical device, not a Simulator."
+            case .missingMerchantID:
+                return "The merchant ID is missing from Info.plist, CustomMerchantID field."
             }
         }
     }
@@ -49,6 +54,7 @@ class ApplePayPaymentHandler: NSObject {
     }
     
     func startPayment(amount: Decimal, completion: @escaping PaymentCompletionHandler) {
+    
         
         print(amount)
         completionHandler = completion
@@ -58,14 +64,22 @@ class ApplePayPaymentHandler: NSObject {
             paymentStatus = .failure
             let error = Error.invalidAmount
             self.completionHandler(false)
+            self.completionHandler = nil
             // todo: pass back error?
+            return
+        }
+        
+        guard let merchantID = Bundle.main.object(forInfoDictionaryKey: "CustomMerchantID") as? String else {
+            let error = Error.missingMerchantID
+            self.completionHandler(false)
+            self.completionHandler = nil
             return
         }
 
         // Create a payment request.
         let paymentRequest = PKPaymentRequest()
         paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: WMFLocalizedString("apple-pay-item-description", value: "Wikipedia Gift", comment: "Apple Pay item description. Appears in the Apple Pay payment sheet."), amount: amount as NSDecimalNumber, type: .final)] // todo: tax? total?
-        paymentRequest.merchantIdentifier = "{redacted}" // todo: make this dynamic and hidden
+        paymentRequest.merchantIdentifier =  merchantID
         paymentRequest.currencyCode = Locale.current.currencyCode ?? "USD" // todo: confirm default
         paymentRequest.merchantCapabilities = .capability3DS // todo: confirm
         paymentRequest.countryCode = Locale.current.regionCode ?? "US" // todo: confirm, may need to just be US
@@ -104,10 +118,10 @@ extension ApplePayPaymentHandler: PKPaymentAuthorizationControllerDelegate {
         }
         
         let emailAddressForCiviCRM = payment.shippingContact?.emailAddress
-        let nameForCiciCRM = payment.shippingContact?.name
+        let nameForCiviCRM = payment.shippingContact?.name
         
         print(emailAddressForCiviCRM)
-        print(nameForCiciCRM)
+        print(nameForCiviCRM)
         
         // TODO: Post payment & metadata, handle errors
         

@@ -309,7 +309,7 @@ struct ApplePayFooterItemView: View {
     var body: some View {
         HStack {
             Button {
-                print("asdsf")
+                print("Tapped button")
             } label: {
                 Text(text)
                     .multilineTextAlignment(.leading)
