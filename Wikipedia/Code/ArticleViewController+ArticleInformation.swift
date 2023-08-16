@@ -32,7 +32,7 @@ extension ArticleViewController {
         
         EditHistoryCompareFunnel.shared.logShowHistory(articleURL: articleURL)
         
-        let historyVC = PageHistoryViewController(pageTitle: title, pageURL: articleURL)
+        let historyVC = PageHistoryViewController(pageTitle: title, pageURL: articleURL, articleSummaryController: dataStore.articleSummaryController)
         historyVC.apply(theme: theme)
         push(historyVC)
     }
@@ -68,6 +68,7 @@ extension ArticleViewController: WMFLanguagesViewControllerDelegate {
     func languagesController(_ controller: WMFLanguagesViewController, didSelectLanguage language: MWKLanguageLink) {
         dismiss(animated: true) {
             self.navigate(to: language.articleURL)
+            NavigationEventsFunnel.shared.logEvent(action: .articleToolbarLangSuccess)
         }
     }
 }

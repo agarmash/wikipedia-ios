@@ -174,13 +174,16 @@ class ErrorPanelViewController : ScrollableEducationPanelViewController {
     private let messageHtml: String
     private let button1Title: String
     private let button2Title: String?
+    private let errorImage: UIImage?
     
-    init(messageHtml: String, button1Title: String, button2Title: String?, primaryButtonTapHandler: ScrollableEducationPanelButtonTapHandler?, secondaryButtonTapHandler: ScrollableEducationPanelButtonTapHandler?, subheadingLinkAction: ((URL) -> Void)?, theme: Theme) {
+    init(messageHtml: String, image: UIImage? = UIImage(named: "error-icon-large"), button1Title: String, button2Title: String?, primaryButtonTapHandler: ScrollableEducationPanelButtonTapHandler?, secondaryButtonTapHandler: ScrollableEducationPanelButtonTapHandler?, subheadingLinkAction: ((URL) -> Void)?, theme: Theme) {
         self.messageHtml = messageHtml
         self.button1Title = button1Title
         self.button2Title = button2Title
+        self.errorImage = image
         super.init(showCloseButton: true, primaryButtonTapHandler: primaryButtonTapHandler, secondaryButtonTapHandler: secondaryButtonTapHandler, traceableDismissHandler: nil, hasPinnedButtons: true, theme: theme)
         self.subheadingLinkAction = subheadingLinkAction
+
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -189,7 +192,7 @@ class ErrorPanelViewController : ScrollableEducationPanelViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        image = UIImage(named: "error-icon-large")
+        image = errorImage
         subheadingHTML = messageHtml
         primaryButtonTitle = button1Title
         secondaryButtonTitle = button2Title
@@ -448,6 +451,7 @@ class LanguageVariantEducationalPanelViewController: ScrollableEducationPanelVie
         case "tg": return CommonStrings.tajikVariantsAlertTitle
         case "uz": return CommonStrings.uzbekVariantsAlertTitle
         case "zh": return CommonStrings.chineseVariantsAlertTitle
+        case "shi": return CommonStrings.tachelhitVariantsAlertTitle
         default:
             assertionFailure("No language variant alert title for language code '\(languageCode)'")
             return ""
@@ -465,6 +469,7 @@ class LanguageVariantEducationalPanelViewController: ScrollableEducationPanelVie
         case "tg": return CommonStrings.tajikVariantsAlertBody
         case "uz": return CommonStrings.uzbekVariantsAlertBody
         case "zh": return CommonStrings.chineseVariantsAlertBody
+        case "shi": return CommonStrings.tachelhitVariantsAlertBody
         default:
             assertionFailure("No language variant alert body for language code '\(languageCode)'")
             return ""
@@ -525,9 +530,9 @@ extension UIViewController {
     ///   - linkBaseURL: base URL that relative links within messageHtml will reference
     ///   - currentTitle: Wiki title representing the article the user is currently working against. Used to help resolve relative links against.
     ///   - theme: initial theme for panel.
-    func wmf_showBlockedPanel(messageHtml: String, linkBaseURL: URL, currentTitle: String, theme: Theme) {
+    func wmf_showBlockedPanel(messageHtml: String, linkBaseURL: URL, currentTitle: String, theme: Theme, image: UIImage? = UIImage(named: "error-icon-large")) {
         
-        let panel = ErrorPanelViewController(messageHtml: messageHtml, button1Title: CommonStrings.okTitle, button2Title: nil, primaryButtonTapHandler: { [weak self] sender in
+        let panel = ErrorPanelViewController(messageHtml: messageHtml, image: image, button1Title: CommonStrings.okTitle, button2Title: nil, primaryButtonTapHandler: { [weak self] sender in
             self?.dismiss(animated: true)
         }, secondaryButtonTapHandler: nil, subheadingLinkAction: { [weak self] url in
 
@@ -537,7 +542,8 @@ extension UIViewController {
 
             let fullURL = baseURL.resolvingRelativeWikiHref(url.relativeString)
 
-            self?.presentingViewController?.dismiss(animated: true) {
+            let viewController = self?.presentingViewController ?? self?.presentedViewController
+            viewController?.dismiss(animated: true) {
                 self?.navigate(to: fullURL)
             }
 
@@ -745,13 +751,14 @@ extension UIViewController {
         present(panelVC, animated: true, completion: nil)
     }
     
-    @objc func wmf_showLoginViewController(theme: Theme, loginSuccessCompletion: (() -> Void)? = nil, loginDismissedCompletion: (() -> Void)? = nil) {
+    func wmf_showLoginViewController(category: EventCategoryMEP? = nil, theme: Theme, loginSuccessCompletion: (() -> Void)? = nil, loginDismissedCompletion: (() -> Void)? = nil) {
         guard let loginVC = WMFLoginViewController.wmf_initialViewControllerFromClassStoryboard() else {
             assertionFailure("Expected view controller(s) not found")
             return
         }
         loginVC.loginSuccessCompletion = loginSuccessCompletion
         loginVC.loginDismissedCompletion = loginDismissedCompletion
+        loginVC.category = category
         loginVC.apply(theme: theme)
         present(WMFThemeableNavigationController(rootViewController: loginVC, theme: theme), animated: true)
     }
@@ -823,11 +830,12 @@ extension UIViewController {
         present(panelVC, animated: true)
     }
 
-    @objc func wmf_showLoginOrCreateAccountToThankRevisionAuthorPanel(theme: Theme, dismissHandler: ScrollableEducationPanelDismissHandler? = nil, loginSuccessCompletion: (() -> Void)? = nil, loginDismissedCompletion: (() -> Void)? = nil) {
+    func wmf_showLoginOrCreateAccountToThankRevisionAuthorPanel(category: EventCategoryMEP? = nil, theme: Theme, dismissHandler: ScrollableEducationPanelDismissHandler? = nil, tapLoginHandler: (() -> Void)? = nil, loginSuccessCompletion: (() -> Void)? = nil, loginDismissedCompletion: (() -> Void)? = nil) {
 
         let loginToThankTapHandler: ScrollableEducationPanelButtonTapHandler = { _ in
+            tapLoginHandler?()
             self.presentedViewController?.dismiss(animated: true, completion: {
-                self.wmf_showLoginViewController(theme: theme, loginSuccessCompletion: loginSuccessCompletion, loginDismissedCompletion: loginDismissedCompletion)
+                self.wmf_showLoginViewController(category: category, theme: theme, loginSuccessCompletion: loginSuccessCompletion, loginDismissedCompletion: loginDismissedCompletion)
             })
         }
         
@@ -840,11 +848,8 @@ extension UIViewController {
         present(panelVC, animated: true)
     }
 
-    func wmf_showThankRevisionAuthorEducationPanel(theme: Theme, sendThanksHandler: @escaping ScrollableEducationPanelButtonTapHandler) {
-        let secondaryButtonTapHandler: ScrollableEducationPanelButtonTapHandler = { _ in
-            self.presentedViewController?.dismiss(animated: true)
-        }
-        let panelVC = ThankRevisionAuthorEducationPanelViewController(showCloseButton: false, primaryButtonTapHandler: sendThanksHandler, secondaryButtonTapHandler: secondaryButtonTapHandler, dismissHandler: nil, discardDismissHandlerOnPrimaryButtonTap: true, theme: theme)
+    func wmf_showThankRevisionAuthorEducationPanel(theme: Theme, sendThanksHandler: @escaping ScrollableEducationPanelButtonTapHandler, cancelHandler: @escaping ScrollableEducationPanelButtonTapHandler) {
+        let panelVC = ThankRevisionAuthorEducationPanelViewController(showCloseButton: false, primaryButtonTapHandler: sendThanksHandler, secondaryButtonTapHandler: cancelHandler, dismissHandler: nil, discardDismissHandlerOnPrimaryButtonTap: true, theme: theme)
         present(panelVC, animated: true)
     }
     

@@ -23,10 +23,6 @@ protocol DescriptionEditViewControllerDelegate: AnyObject {
     private var theme = Theme.standard
 
     var delegate: DescriptionEditViewControllerDelegate? = nil
-
-    // MARK: Event logging
-    @objc var editFunnel: EditFunnel?
-    @objc var editFunnelSource: EditFunnelSource = .unknown
     
     private var articleDescriptionController: ArticleDescriptionControlling!
     
@@ -210,11 +206,16 @@ protocol DescriptionEditViewControllerDelegate: AnyObject {
     }
 
     @IBAction private func publishDescriptionButton(withSender sender: UIButton) {
-        editFunnel?.logTitleDescriptionSaveAttempt(source: editFunnelSource, isAddingNewTitleDescription: isAddingNewTitleDescription, language: articleDescriptionController.articleLanguageCode)
+        if let articleURL = articleDescriptionController.article.url {
+            EditAttemptFunnel.shared.logSaveIntent(articleURL: articleURL)
+        }
         save()
     }
 
     @objc func closeButtonPushed(_ : UIBarButtonItem) {
+        if let articleURL = articleDescriptionController.article.url {
+            EditAttemptFunnel.shared.logAbort(articleURL: articleURL)
+        }
         dismiss(animated: true, completion: nil)
     }
 
@@ -235,11 +236,15 @@ protocol DescriptionEditViewControllerDelegate: AnyObject {
                 textViewDidChange(descriptionTextView)
                 return
         }
+
+
+        if let articleURL = self.articleDescriptionController.article.url {
+            EditAttemptFunnel.shared.logSaveAttempt(articleURL: articleURL)
+        }
         
         articleDescriptionController.publishDescription(descriptionToSave) { [weak self] (result) in
-            
-            DispatchQueue.main.async {
 
+            DispatchQueue.main.async {
                 guard let self else {
                     return
                 }
@@ -248,18 +253,26 @@ protocol DescriptionEditViewControllerDelegate: AnyObject {
                 self.enableProgressiveButton(true)
                 switch result {
                 case .success(let result):
-                    self.editFunnel?.logTitleDescriptionSaved(source: self.editFunnelSource, isAddingNewTitleDescription: self.isAddingNewTitleDescription, language: self.articleDescriptionController.articleLanguageCode)
                     self.delegate?.descriptionEditViewControllerEditSucceeded(self, result: result)
+                    
+                    if let articleURL = self.articleDescriptionController.article.url {
+                        
+                        var revisionID: Int?
+                        if let uintRevisionID = result.newRevisionID {
+                            revisionID = Int(uintRevisionID)
+                        }
+                        
+                        EditAttemptFunnel.shared.logSaveSuccess(articleURL: articleURL, revisionId: revisionID)
+                    }
                     self.dismiss(animated: true) {
                         presentingVC?.wmf_showDescriptionPublishedPanelViewController(theme: self.theme)
                         NotificationCenter.default.post(name: DescriptionEditViewController.didPublishNotification, object: nil)
                     }
                 case .failure(let error):
-
                     let nsError = error as NSError
-                    let errorCode = self.articleDescriptionController.errorCodeFromError(nsError)
-                    self.editFunnel?.logTitleDescriptionSaveError(source: self.editFunnelSource, isAddingNewTitleDescription: self.isAddingNewTitleDescription, language: self.articleDescriptionController.articleLanguageCode, errorText: errorCode)
-
+                    if let articleURL = self.articleDescriptionController.article.url {
+                        EditAttemptFunnel.shared.logSaveFailure(articleURL: articleURL)
+                    }
                     if let wikidataError = error as? WikidataFetcher.WikidataPublishingError {
                         switch wikidataError {
                         case .apiBlocked(let blockedError):
@@ -294,8 +307,6 @@ protocol DescriptionEditViewControllerDelegate: AnyObject {
                     default:
                         WMFAlertManager.sharedInstance.showErrorAlert(nsError as NSError, sticky: true, dismissPreviousAlerts: true, tapCallBack: nil)
                     }
-                    
-                    
                 }
             }
         }
@@ -338,7 +349,6 @@ protocol DescriptionEditViewControllerDelegate: AnyObject {
     }
     
     private func hideAllWarningLabels() {
-        warningCharacterCountLabel.isHidden = true
         lengthWarningLabel.isHidden = true
         casingWarningLabel.isHidden = true
     }

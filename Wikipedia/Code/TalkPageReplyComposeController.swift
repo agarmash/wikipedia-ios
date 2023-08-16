@@ -390,6 +390,10 @@ class TalkPageReplyComposeController {
     }
     
     @objc private func tappedPublish() {
+
+        if let talkPageURL = commentViewModel?.talkPageURL {
+            EditAttemptFunnel.shared.logSaveIntent(articleURL: talkPageURL)
+        }
         
         guard let commentViewModel = commentViewModel,
               let text = contentView?.replyTextView.text else {
@@ -428,7 +432,7 @@ extension TalkPageReplyComposeController: Themeable {
     func apply(theme: Theme) {
         containerView?.backgroundColor = theme.colors.paperBackground
         containerView?.layer.shadowColor = theme.colors.shadow.cgColor
-        dragHandleView?.backgroundColor = theme.colors.depthMarker
+        dragHandleView?.backgroundColor = .gray675
         contentView?.apply(theme: theme)
     }
 }

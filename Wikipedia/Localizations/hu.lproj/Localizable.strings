@@ -7,6 +7,7 @@
 // Author: Eukarióta
 // Author: Hanna Tardos
 // Author: Macofe
+// Author: McDutchie
 // Author: MeskoBalazs
 // Author: Misibacsi
 // Author: Máté
@@ -189,11 +190,16 @@
 "description-welcome-descriptions-title" = "Cikkleírások";
 "description-welcome-promise-title" = "Mielőtt nekifognék, megígérem, hogy nem élek vissza ezzel a funkcióval";
 "description-welcome-start-editing-button" = "Szerkesztés elkezdése";
+// Fuzzy
+"diff-compare-header-from-info-heading" = "Ettől:";
 "diff-compare-header-heading" = "Változatok összehasonlítása";
+// Fuzzy
+"diff-compare-header-to-info-heading" = "Eddig:";
 "diff-compare-title" = "Változatok összehasonlítása";
 "diff-context-lines-collapsed-button-title" = "Mutat";
 "diff-context-lines-expanded-button-title" = "Elrejtés";
 "diff-multi-line-format" = "$1 - $2 sor";
+"diff-paragraph-moved" = "Bekezdés áthelyezve";
 "diff-paragraph-moved-direction-down" = "le";
 "diff-paragraph-moved-direction-up" = "föl";
 "diff-paragraph-moved-distance-line" = "{{PLURAL:$1|Egy sor|$1 sor}}";
@@ -316,9 +322,14 @@
 "explore-random-article-sub-heading-from-wikipedia" = "A Wikipédiáról";
 "explore-randomizer" = "Randomizáló";
 "export-user-data-confirmation-title" = "Megosztod az alkalmazáskönyvtárat?";
+"export-user-data-generic-error" = "Hiba történet az adatok exportálása során. Kérlek próbáld újra később.";
+"export-user-data-space-error" = "Nincs elég tárterület az eszközön a felhasználói adatok exportálásához. Kérlek, próbáld újra később.";
 "export-user-data-title" = "Felhasználói adatok exportálása";
+"featured-widget-from-language-wikipedia" = "A(z) $1 Wikipédiáról";
+"featured-widget-from-wikipedia" = "A Wikipédiáról";
 "featured-widget-title" = "Kiemelt szócikk";
 "fetcher-error-generic" = "Valami félresikerült. Kérlek próbáld újra később.";
+"fetcher-error-unexpected-response" = "Az alkalmazás váratlan választ kapott a szervertől. Kérlek, próbáld újra később.";
 "field-alert-captcha-invalid" = "Érvénytelen CAPTCHA";
 "field-alert-password-confirm-mismatch" = "A jelszavak nem egyeznek";
 "field-alert-token-invalid" = "Érvénytelen kód";
@@ -326,7 +337,7 @@
 "field-backup-token-title" = "Visszaállítási kód";
 "field-captcha-placeholder" = "CAPTCHA-szöveg";
 "field-captcha-title" = "Írd be a fent látható szöveget";
-"field-email-placeholder" = "pelda@minta.hu";
+"field-email-placeholder" = "pelda@example.org";
 "field-email-title" = "E-mail-cím";
 "field-email-title-optional" = "E-mail-cím (opcionális)";
 "field-new-password-confirm-placeholder" = "add meg az új jelszavad még egyszer";
@@ -372,6 +383,8 @@
 "icon-shortcut-random-title" = "Lap találomra";
 "icon-shortcut-search-title" = "Keresés a Wikipédiában";
 "image-gallery-unknown-owner" = "Ismeretlen szerző.";
+"import-shared-reading-list-survey-prompt-button-cancel" = "Ne most";
+"import-shared-reading-list-survey-prompt-button-take-survey" = "Kérdőív kitöltése";
 "in-the-news-sub-title-from-language-wikipedia" = "A(z) $1 Wikipédiáról";
 "in-the-news-sub-title-from-wikipedia" = "A Wikipédiáról";
 "in-the-news-title" = "A hírekben";
@@ -384,6 +397,7 @@
 "insert-media-caption-title" = "Képaláírás";
 "insert-media-image-position-setting-center" = "Középre";
 "insert-media-image-position-setting-left" = "Balra";
+"insert-media-image-position-setting-none" = "Nincs";
 "insert-media-image-position-setting-right" = "Jobbra";
 "insert-media-image-position-settings-title" = "A kép pozíciója";
 "insert-media-image-preview-more-information-action-title" = "További információk";
@@ -392,6 +406,7 @@
 "insert-media-image-size-setting-default" = "Alapértelmezett";
 "insert-media-image-size-settings-px-unit-name" = "pixel";
 "insert-media-image-size-settings-title" = "Képméret";
+"insert-media-image-type-setting-basic" = "Egyszerű";
 "insert-media-image-type-setting-frame" = "Keret";
 "insert-media-image-type-setting-frameless" = "Keret nélkül";
 "insert-media-image-type-setting-thumbnail" = "Bélyegkép";
@@ -399,8 +414,6 @@
 "insert-media-media-settings-title" = "Médiabeállítások";
 "insert-media-title" = "Média beszúrása";
 "insert-media-uploaded-image-title" = "Feltöltött kép";
-"intermediate-edits-count" = "{{PLURAL:$1|Egy közbenső módosítás|$1 közbenső módosítás}} nincs mutatva";
-"intermediate-edits-count-limited" = "$1+ közbenső változtatás nincs mutatva";
 "kazakh-variants-alert-title" = "A kazak nyelvi változat támogatásának frissítése";
 "kurdish-variants-alert-title" = "A kurd nyelvi változat támogatásának frissítése";
 "languages-settings-title" = "Nyelvek";
@@ -500,11 +513,8 @@
 "page-history-revision-time-accessibility-label" = "Változtatás közzétéve ekkor: $1";
 "page-history-stats-text" = "{{PLURAL:$1|$Egy szerkesztés|$1 szerkesztés}} $2-óta";
 "page-location" = "Megtekintés térképen";
-"page-protected-autoconfirmed" = "Ez a lap félig védett.";
 "page-protected-can-not-edit" = "Nincs jogosultságod a lap szerkesztéséhez";
 "page-protected-can-not-edit-title" = "Ez a lap védett";
-"page-protected-other" = "Ez a lap az alábbi szinten védett: $1";
-"page-protected-sysop" = "Ez a lap teljesen védett.";
 "page-similar-titles" = "Hasonló oldalak";
 "panel-compare-revisions-title" = "Változatok összehasonlítása";
 "pictured" = "képpel";
@@ -663,25 +673,14 @@
 "tajik-variants-alert-title" = "A tadzsik nyelvi változat támogatásának frissítése";
 "talk-page-discussion-read-accessibility-label" = "Olvasott";
 "talk-page-discussion-unread-accessibility-label" = "Olvasatlan";
-"talk-page-error-unable-to-post-reply" = "Nincs internetkapcsolat, nem sikerült elküldeni a választ.";
-"talk-page-link-user-action-sheet-app" = "Felhasználói lap megtekintése az alkalmazásban";
-"talk-page-link-user-action-sheet-safari" = "Felhasználói lap megtekintése Safarival";
-"talk-page-new-reply-body-accessibility-label" = "Válasz írása";
-"talk-page-new-reply-body-placeholder-text" = "Válasz írása";
 "talk-page-new-reply-success-text" = "A válaszod közzétéve";
-"talk-page-new-subject-clear-button-accessibility" = "Téma törlése";
-"talk-page-new-subject-placeholder-text" = "Tárgy";
-"talk-page-new-subject-textfield-accessibility-label" = "Tárgy";
-"talk-page-new-topic-title" = "Új téma";
 "talk-page-reply-button" = "Válasz";
-"talk-page-reply-title" = "Válasz";
 "talk-page-subscribe-to-topic" = "Feliratkozás";
 "talk-page-title-article-talk" = "Szócikk Vitalap";
 "talk-page-title-user-talk" = "Szerkesztővita";
 "talk-page-unsubscribe-to-topic" = "Leiratkozás";
 "talk-pages-archives-view-title" = "Archívumok";
 "talk-pages-coffee-roll-read-more" = "Továbbolvas";
-"talk-pages-reply-button-title" = "Válasz erre a témára";
 "theme-black-display-name" = "Fekete";
 "theme-dark-display-name" = "Sötét";
 "theme-default-display-name" = "Alapértelmezés";

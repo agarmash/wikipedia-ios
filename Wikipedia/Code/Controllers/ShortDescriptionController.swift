@@ -54,22 +54,24 @@ class ShortDescriptionController: ArticleDescriptionControlling {
     func publishDescription(_ description: String, completion: @escaping (Result<ArticleDescriptionPublishResult, Error>) -> Void) {
         
         sectionFetcher.fetchSection(with: sectionID, articleURL: articleURL) { [weak self] (result) in
-            
-            guard let self = self else {
-                completion(.failure(ShortDescriptionControllerError.missingSelf))
-                return
-            }
-            
-            switch result {
-            case .success(let response):
-                
-                let wikitext = response.wikitext
-                let revisionID = response.revisionID
-                
-                self.uploadNewDescriptionToWikitext(wikitext, baseRevisionID: revisionID, newDescription: description, completion: completion)
-                
-            case .failure(let error):
-                completion(.failure(error))
+            DispatchQueue.main.async {
+
+                guard let self = self else {
+                    completion(.failure(ShortDescriptionControllerError.missingSelf))
+                    return
+                }
+
+                switch result {
+                case .success(let response):
+
+                    let wikitext = response.wikitext
+                    let revisionID = response.revisionID
+
+                    self.uploadNewDescriptionToWikitext(wikitext, baseRevisionID: revisionID, newDescription: description, completion: completion)
+
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
         }
     }
@@ -98,7 +100,7 @@ class ShortDescriptionController: ArticleDescriptionControlling {
             
             switch result {
             case .success(let result):
-                blockedError = result.blockedError
+                blockedError = result.apiError
             case .failure:
                 break
             }
@@ -108,12 +110,7 @@ class ShortDescriptionController: ArticleDescriptionControlling {
             completion(currentDescription, blockedError)
         }
     }
-    
-    func errorCodeFromError(_ error: Error) -> String {
-        let errorText = "\((error as NSError).domain)-\((error as NSError).code)"
-        return errorText
-    }
-    
+
     func learnMoreViewControllerWithTheme(_ theme: Theme) -> UIViewController? {
         guard let url = URL(string: "https://en.wikipedia.org/wiki/Wikipedia:Short_description") else {
             return nil

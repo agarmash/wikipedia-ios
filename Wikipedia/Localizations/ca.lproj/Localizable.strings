@@ -13,6 +13,7 @@
 // Author: Lluis tgn
 // Author: Maceleiro
 // Author: Macofe
+// Author: McDutchie
 // Author: Mguix
 // Author: Nemo bis
 // Author: Rbndev
@@ -175,6 +176,8 @@
 "chinese-variants-alert-body" = "L'aplicació de Viquipèdia ara funciona amb les variants xineses a continuació com a llengües primàries o secundàries. Això facilita la lectura, la cerca i l'edició en les vostres variants preferides:\n\n简体 Xinès, simplificat (zh-hans)\n香港繁體 Tradicional de Hong Kong (zh-hk)\n澳門繁體 Tradicional de Macau (zh-mo)\n大马简体 Simplificat de Malàisia (zh-my)\n新加坡简体 Simplificat de Singapur (zh-sg)\n臺灣正體 Tradicional taiwanès (zh-tw)";
 "chinese-variants-alert-title" = "Actualitzacions per a l'admissió de variants xineses";
 "clear-title-accessibility-label" = "Neteja";
+"clearing-cache-complete" = "Neteja de la memòria cau completa.";
+"clearing-cache-in-progress" = "Neteja de la memòria cau en curs.";
 "close-button-accessibility-label" = "Tanca";
 "compass-direction" = "a les $1 en punt";
 "continue-reading-empty-description" = "Exploreu la Viquipèdia per a llegir més articles";
@@ -218,12 +221,14 @@
 "description-welcome-descriptions-title" = "Descripcions d'article";
 "description-welcome-promise-title" = "En començar prometo no fer mal ús d'aquesta funcionalitat";
 "description-welcome-start-editing-button" = "Comença a editar-hi";
-"diff-compare-header-from-info-heading" = "De:";
+"diff-article-edit-history" = "Historial de modificació de l'article";
+"diff-compare-header-from-info-heading" = "Edició anterior";
 "diff-compare-header-heading" = "Compara les revisions";
-"diff-compare-header-to-info-heading" = "A:";
+"diff-compare-header-to-info-heading" = "Edició actual";
 "diff-compare-title" = "Compara les revisions";
 "diff-context-lines-collapsed-button-title" = "Mostra";
 "diff-context-lines-expanded-button-title" = "Amaga";
+"diff-header-revision-accessibility-text" = "Revisió feta el";
 "diff-multi-line-format" = "Línies $1 - $2";
 "diff-paragraph-moved" = "S'ha mogut el paràgraf";
 "diff-paragraph-moved-direction-down" = "avall";
@@ -232,6 +237,10 @@
 "diff-paragraph-moved-distance-section" = "{{PLURAL:$1|$1 secció|$1 seccions}}";
 "diff-paragraph-moved-format" = "El paràgraf s'ha mogut $1 $2";
 "diff-revision-error-title" = "No s'ha pogut carregar la revisió";
+"diff-rollback" = "Reverteix";
+"diff-rollback-alert-message" = "Esteu segur que voleu revertir les modificacions?";
+"diff-rollback-alert-title" = "Reverteix les modificacions";
+"diff-rollback-success" = "S'han revertit les edicions.";
 "diff-single-header-editor-number-edits-format" = "{{PLURAL:$1|$1 edició|$1 edicions}}";
 "diff-single-header-editor-title" = "Informació de l'editor";
 "diff-single-header-subtitle-bytes-added" = "{{PLURAL:$1|S'ha afegit $1 byte|S'han afegit $1 bytes}}";
@@ -248,7 +257,10 @@
 "diff-thanks-sent" = "S'ha enviat el vostre agraïment a $1";
 "diff-thanks-sent-already" = "Ja heu enviat un agraïment per aquesta edició";
 "diff-thanks-sent-cannot-unsend" = "No poden desfer-se els agraïments enviats";
+"diff-undo-message" = "Això desfarà els canvis fets per les revisions de l'article tal com es mostren aquí. Per a continuar, proporcioneu un motiu per a desfer la modificació.";
+"diff-undo-success" = "S'ha desfet la revisió.";
 "diff-unedited-lines-format" = "{{PLURAL:$1|$1 línia sense editar|$1 línies sense editar}}";
+"diff-user-button-accessibility-text" = "Fes doble toc per a obrir el menú";
 "dim-images" = "Atenuació d'imatges";
 "edit-bold-accessibility-label" = "Afegeix format en negreta";
 "edit-bold-remove-accessibility-label" = "Suprimeix format en negreta";
@@ -446,7 +458,7 @@
 "field-backup-token-title" = "Codi de còpia de seguretat";
 "field-captcha-placeholder" = "Text del CAPTCHA";
 "field-captcha-title" = "Escriviu el text que veieu a sobre";
-"field-email-placeholder" = "exemple@exemple.org";
+"field-email-placeholder" = "exemple@example.org";
 "field-email-title" = "Adreça electrònica";
 "field-email-title-optional" = "Adreça electrònica (opcional)";
 "field-new-password-confirm-placeholder" = "torneu a introduir la contrasenya nova";
@@ -532,12 +544,6 @@
 "insert-media-media-settings-title" = "Configuració multimèdia";
 "insert-media-title" = "Insereix fitxer multimèdia";
 "insert-media-uploaded-image-title" = "Imatge carregada";
-"intermediate-edits-count" = "No {{PLURAL:$1|s'ha mostrat $1 revisió intermèdia|s'han mostrat $1 revisions intermèdies}}";
-"intermediate-edits-count-limited" = "No s'han mostrat $1+ revisions intermèdies";
-"intermediate-edits-editors-count" = "No {{PLURAL:$1|s'ha mostrat $1 revisió intermèdia|s'han mostrat $1 revisions intermèdies}} de {{PLURAL:$2|$2 usuari|$2 usuaris}}";
-"intermediate-edits-editors-count-limited" = "$1+ revisions intermèdies per $2+ usuaris no mostrats";
-"intermediate-edits-editors-limited-count" = "{{PLURAL:$1|$1 revisió intermèdia|$1 revisions intermèdies}} per $2+ usuaris no mostrats";
-"intermediate-edits-limited-editors-count" = "$1+ revisions intermèdies per {{PLURAL:$2|$2 usuari|$2 usuaris}} no mostrades";
 "inuktitut-variants-alert-body" = "L'aplicació Wikipedia admet ara les següents variants inuktitut com a llengües principals o secundàries de l'aplicació, cosa que facilita la lectura, la cerca i l'edició de les vostres variants preferides: \n\nᐃᓄᒃᑎᑐᑦ ᑎᑎᕋᐅᓯᖅ ᓄᑖᖅ Inuktitut, síl·labes (ike-cans)\nInuktitut ilisautik, Inuktitut, llatí ( ike-latn)";
 "inuktitut-variants-alert-title" = "Actualitzacions del suport a les variants Inuktitut";
 "kazakh-variants-alert-body" = "L’aplicació Wikipedia admet ara les següents variants kazakhs com a llengües primàries o secundàries de l’aplicació, cosa que facilita la lectura, la cerca i l’edició de les vostres variants preferides:\n\nҚазақша kazakh (kk)\nҚазақша Кирил Kazakh, ciríl·lic (kk-cyrl)\nqazaqşa llatí kazakh, llatí (kk-latn)\nتوتە قازاقشا kazakh, àrab (kk-arab)";
@@ -572,6 +578,7 @@
 "menu-cancel-accessibility-label" = "Cancel·la";
 "more-languages-tooltip-description" = "Cerca a la Viquipèdia en més de 300 llengües";
 "more-languages-tooltip-title" = "Afegeix llengües";
+"more-menu" = "Més";
 "move-articles-to-reading-list" = "Mou {{PLURAL:$1|$1 article|$1 articles}} a la llista de lectura";
 "navbar-title-mode-edit-wikitext-preview" = "Previsualitza";
 "nearby-distance-label-feet" = "$1 peus";
@@ -741,11 +748,8 @@
 "page-history-user-edits" = "edicions d'usuaris";
 "page-issues" = "Incidències de la pàgina";
 "page-location" = "Mostra al mapa";
-"page-protected-autoconfirmed" = "La pàgina ha estat semiprotegida.";
 "page-protected-can-not-edit" = "No teniu permisos per modificar la pàgina";
 "page-protected-can-not-edit-title" = "La pàgina està protegida";
-"page-protected-other" = "La pàgina ha estat protegida als nivells següents: $1";
-"page-protected-sysop" = "La pàgina està protegida.";
 "page-similar-titles" = "Pàgines similars";
 "panel-compare-revisions-text" = "Comparar revisions ajuda a mostrar com canvia un article al llarg del temps. Comparar dues revisions d'un article mostrarà la diferència entre les revisions ressaltant el contingut que hagi canviat.";
 "panel-compare-revisions-title" = "Comparació de revisions";
@@ -997,50 +1001,30 @@
 "tajik-variants-alert-body" = "L'aplicació Wikipedia admet ara les següents variants tayik com a llengües primàries o secundàries de l'aplicació, cosa que facilita la lectura, la cerca i l'edició de les vostres variants preferides: \n\nтоҷикӣ кирилликӣ Tadjik, ciríl·lic (tg-cyrl) \ntojikī lotinī Tadjik, llatí (tg- latn)";
 "tajik-variants-alert-title" = "Actualitzacions per a l'admissió de variants tajik";
 "talk-page-active-users-accessibilty-label" = "{{PLURAL:$1|$1 usuari actiu|$1 usuaris actius}}";
-"talk-page-add-discussion-accessibility-label" = "Afegeix una discussió";
 "talk-page-add-topic-button" = "Afegeix un tema";
 "talk-page-archives" = "Arxius";
 "talk-page-article-about" = "Quant a les pàgines de discussió";
 "talk-page-change-language" = "Canvia la llengua";
 "talk-page-collapse-thread-button" = "Plega el fil";
-"talk-page-discussion-accessibility-hint" = "Feu un toc doble per obrir el fil de discussió";
 "talk-page-discussion-read-accessibility-label" = "Llegit";
-"talk-page-discussion-read-ipa-accessibility-attribute" = "ʎəʒit";
 "talk-page-discussion-unread-accessibility-label" = "No llegit";
-"talk-page-discussion-unread-ipa-accessibility-attribute" = "no ʎəʒit";
 "talk-page-error-alert-subtitle" = "L'aplicació ha rebut una resposta no esperada del servidor. Torneu-ho a provar més tard.";
 "talk-page-error-alert-title" = "Error no esperat";
 "talk-page-error-loading-subtitle" = "Ha fallat quelcom.";
 "talk-page-error-loading-title" = "No es pot carregar la pàgina de discussió";
-"talk-page-error-unable-to-post-reply" = "No hi ha connexió a Internet. No es pot enviar la resposta.";
-"talk-page-error-unable-to-post-topic" = "No hi ha connexió a Internet. No es pot enviar la discussió.";
 "talk-page-expand-thread-button" = "Desplega el fil";
 "talk-page-find-in-page-button" = "Cerca a la pàgina";
-"talk-page-info-active-conversations" = "Converses actives a la Viquipèdia en $1";
-"talk-page-info-active-conversations-generic" = "Converses actives a la Viquipèdia";
-"talk-page-link-user-action-sheet-app" = "Mostra la pàgina de discussió d'usuari a l'aplicació";
-"talk-page-link-user-action-sheet-safari" = "Mostra la pàgina d’usuari al Safari";
-"talk-page-link-user-action-sheet-title" = "Pàgines d’usuari";
 "talk-page-menu-open-all" = "Obre tots els fils";
 "talk-page-new-banner-subtitle" = "Recordeu, aquí tothom és humà";
 "talk-page-new-banner-title" = "Sigueu respectuós/osa";
-"talk-page-new-body-textfield-accessibility-label" = "Cos de la discussió";
-"talk-page-new-reply-body-accessibility-label" = "Redacta una resposta";
-"talk-page-new-reply-body-placeholder-text" = "Redacta una resposta";
 "talk-page-new-reply-success-text" = "La vostra resposta s'ha publicat amb èxit";
-"talk-page-new-subject-clear-button-accessibility" = "Neteja el tema";
-"talk-page-new-subject-placeholder-text" = "Assumpte";
-"talk-page-new-subject-textfield-accessibility-label" = "Assumpte";
-"talk-page-new-topic-body-placeholder-text" = "Redacta una discussió nova";
 "talk-page-new-topic-success-text" = "La vostra discussió s'ha publicat amb èxit";
-"talk-page-new-topic-title" = "Discussió nova";
 "talk-page-onboarding-button-accessibility-label" = "Feu doble toc per a tornar a la resposta";
 "talk-page-overflow-menu-accessibility" = "Més opcions de la pàgina de discussió";
 "talk-page-page-info" = "Informació de la pàgina";
 "talk-page-permanent-link" = "Enllaç permanent";
 "talk-page-publish-reply-error-subtitle" = "Comproveu la vostra connexió a Internet.";
 "talk-page-publish-reply-error-title" = "No es pot publicar el vostre comentari.";
-"talk-page-publish-terms-and-licenses" = "En desar els canvis esteu d'acord amb els $1Termes d'ús$2 i esteu d'acord en alliberar la vostra contribució sota les llicències $3CC BY-SA 3.0$4 i $5GFDL$6.";
 "talk-page-publish-topic-error-title" = "No es pot publicar el tema nou.";
 "talk-page-read-in-web" = "Llegeix en format web";
 "talk-page-related-links" = "Què hi enllaça";
@@ -1050,7 +1034,6 @@
 "talk-page-reply-depth-accessibility-label" = "Profunditat de resposta: $1";
 "talk-page-reply-placeholder-format" = "Resposta a $1";
 "talk-page-reply-terms-and-licenses" = "Tingueu en compte que la vostra resposta se signarà automàticament amb el vostre nom d'usuari. En desar els canvis accepteu les $1Condicions d'ús$2, i accepteu alliberar les contribucions sota les llicències $3CC BY-SA 3.0$4 i $5GFDL$6.";
-"talk-page-reply-title" = "Respon";
 "talk-page-revision-history" = "Historial de revisions";
 "talk-page-rply-close-button-accessibility-hint" = "Tanca la vista de resposta";
 "talk-page-share-button" = "Comparteix la pàgina de discussió";
@@ -1062,7 +1045,6 @@
 "talk-page-title-user-talk" = "Discussió de l'usuari";
 "talk-page-topic-close-button-hint" = "Tanca el tema nou";
 "talk-page-topic-compose-terms-and-licenses" = "En publicar els canvis, esteu d'acord amb els $1Termes d'ús$2, i accepteu alliberar irrevocablement la vostra contribució sota les llicències $3CC BY-SA 3.0$4 i $5GFDL$6.";
-"talk-page-topic-title" = "Discussió";
 "talk-page-unsubscribe-to-topic" = "Cancel·la la subscripció";
 "talk-page-unsubscribed-alert-subtitle" = "No rebreu cap més notificació de nous comentaris en aquest tema.";
 "talk-page-unsubscribed-alert-title" = "Heu cancel·lat la subscripció.";
@@ -1080,7 +1062,6 @@
 "talk-pages-empty-view-button-user-start-discussion" = "Inicia una discussió";
 "talk-pages-empty-view-header-article" = "La conversa comença aquí";
 "talk-pages-empty-view-header-user" = "Inicia una discussió amb $1";
-"talk-pages-reply-button-title" = "Respon la discussió";
 "talk-pages-reply-compose-close-confirmation-title" = "Esteu segur que voleu descartar aquesta nova resposta?";
 "talk-pages-topic-added-alert-title" = "S'ha afegit el vostre tema";
 "talk-pages-topic-compose-body-placeholder" = "Descripció";
@@ -1112,6 +1093,7 @@
 "two-factor-login-with-regular-code" = "Utilitza un codi de verificació";
 "unable-to-load-talk-page-title" = "No es pot carregar la pàgina de discussió";
 "unknown-generic-text" = "Desconegut";
+"unwatch" = "Deixa de vigilar";
 "uzbek-variants-alert-body" = "L’aplicació Wikipedia admet ara les següents variants uzbekes com a llengües primàries o secundàries de l’aplicació, cosa que facilita la lectura, la cerca i l’edició de les vostres variants preferides: \n\noʻzbekcha lotin uzbek, llatí (uz-latin)\nўзбекча кирилл Uzbek, ciríl·lic (uz-cyrl)";
 "uzbek-variants-alert-title" = "Actualitzacions del suport a les variants Uzbek";
 "vanish-account-additional-information-field" = "Informació adicional";
@@ -1138,6 +1120,12 @@
 "vanishing-request-email-title" = "Sol·licitud de desaparició de cortesia";
 "variants-alert-dismiss-button" = "No, gràcies";
 "variants-alert-preferences-button" = "Reviseu les vostres preferències";
+"watch" = "Vigila";
+"watchlist" = "Llista de seguiment";
+"watchlist-filter" = "Filtra";
+"watchlist-user-button-user-contributions" = "Contribucions de l'usuari";
+"watchlist-user-button-user-page" = "Pàgina d'usuari";
+"watchlist-user-button-user-talk-page" = "Pàgina de discussió de l'usuari";
 "welcome-exploration-explore-feed-description" = "Lectura recomanada i articles diaris de la nostra comunitat";
 "welcome-exploration-explore-feed-title" = "Canal Exploreu!";
 "welcome-exploration-on-this-day-description" = "Aneu enrere en el temps per a saber què va passar avui al llarg de la història";

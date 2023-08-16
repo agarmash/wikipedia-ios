@@ -119,6 +119,10 @@
 "description-published-button-title" = "সম্পন্ন";
 "description-welcome-descriptions-title" = "নিবন্ধের বিবরণ";
 "description-welcome-start-editing-button" = "সম্পাদনা শুরু করুন";
+"diff-rollback" = "পুনর্বহাল";
+"diff-rollback-alert-title" = "সম্পাদনা পুনর্বহাল";
+"diff-rollback-success" = "সম্পাদনা পুনর্বহাল করা হয়েছে।";
+"diff-undo-success" = "সংশোধনটি পূর্বাবস্থায় ফেরানো হয়েছে।";
 "dim-images" = "অনুজ্জ্বল ছবি";
 "edit-link-title" = "সংযোগ সম্পাদনা";
 "edit-published" = "সম্পাদনা প্রকাশিত হয়েছে";
@@ -241,6 +245,7 @@
 "menu-cancel-accessibility-label" = "বাতিল";
 "more-languages-tooltip-description" = "৩০০টি অধিক ভাষায় উইকিপিডিয়া অন্বেষণ করুন";
 "more-languages-tooltip-title" = "ভাষা যোগ করুন";
+"more-menu" = "আরও";
 "navbar-title-mode-edit-wikitext-preview" = "প্রাকদর্শন";
 "nearby-distance-label-feet" = "$1 ফুট";
 "nearby-distance-label-km" = "$1 কিমি";
@@ -302,11 +307,8 @@
 "on-this-day-sub-title-for-date-from-language-wikipedia" = "$2 উইকিপিডিয়া থেকে $1";
 "on-this-day-title" = "আজকের এই দিনে";
 "page-history-minor-edits" = "অনুল্লেখ্য সম্পাদনা";
-"page-protected-autoconfirmed" = "এই পাতাটি অর্ধ-সুরক্ষিত।";
 "page-protected-can-not-edit" = "এই পাতা সম্পাদনা করার অধিকার আপনার নেই।";
 "page-protected-can-not-edit-title" = "এই পাতাটি সুরক্ষিত";
-"page-protected-other" = "এই পাতাটি নিম্নের মাত্রা অনুযায়ী সুরক্ষিত: $1";
-"page-protected-sysop" = "এই পাতটি সম্পূর্ণ সুরক্ষিত।";
 "places-accessibility-clear-saved-searches" = "সংরক্ষিত অনুসন্ধানগুলি সাফ করুন";
 "places-accessibility-group" = "$1টি নিবন্ধ";
 "places-accessibility-recenter-map-on-user-location" = "আপনার অবস্থান পুন:চিহ্নিত করুন";
@@ -407,7 +409,10 @@
 "two-factor-login-title" = "আপনার অ্যাকাউন্টে প্রবেশ করুন";
 "two-factor-login-with-backup-code" = "আপনার ব্যাকআপ কোডগুলির একটি ব্যবহার করুন";
 "two-factor-login-with-regular-code" = "যাচাইকরণ কোড ব্যবহার করুন";
+"unwatch" = "নজর সরান";
 "variants-alert-dismiss-button" = "না, ধন্যবাদ";
+"watch" = "নজর রাখুন";
+"watchlist" = "নজরতালিকা";
 "welcome-exploration-explore-feed-description" = "আমাদের সম্প্রদায়ের প্রস্তাবিত পাঠ এবং দৈনিক নিবন্ধ";
 "welcome-exploration-explore-feed-title" = "ফিড অন্বেষণ করুন";
 "welcome-exploration-on-this-day-title" = "আজকের এই দিনে";
