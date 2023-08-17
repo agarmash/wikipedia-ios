@@ -24,6 +24,12 @@ class CustomUIHostingController<Content: View>: UIHostingController<Content> {
             NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidBeginEditing), name: .swiftUITextfieldDidBeginEditing, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidEndEditing), name: .swiftUITextfieldDidEndEditing, object: nil)
         }
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     @objc func textfieldDidBeginEditing() {

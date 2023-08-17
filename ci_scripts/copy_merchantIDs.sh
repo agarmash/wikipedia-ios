@@ -136,7 +136,7 @@ if [ -z "$existingEntitlements2MerchantID"]; then
     /usr/libexec/PlistBuddy -c "Add :com.apple.developer.in-app-payments: string '$merchantID'" "$EntitlementsFile2"
     echo "Maybe added MerchantID to Entitlements 2 file."
     newEntitlements2MerchantID=$(/usr/libexec/PlistBuddy -c "Print com.apple.developer.in-app-payments:0" "$EntitlementsFile2")
-    echo "New entitlements 1 merchant ID: $newEntitlements2MerchantID"
+    echo "New entitlements 2 merchant ID: $newEntitlements2MerchantID"
 fi
 
 echo "Update merchantID in Info.plist file"
