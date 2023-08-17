@@ -7267,6 +7267,13 @@
 			name = ImageCache;
 			sourceTree = "<group>";
 		};
+		67CD9C292A8EA38B00CC7CB8 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		67D6C0152405A3E2005709B1 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -8849,6 +8856,7 @@
 		D499142C181D51DE00E6073C = {
 			isa = PBXGroup;
 			children = (
+				67CD9C292A8EA38B00CC7CB8 /* TestFlight */,
 				D499143E181D51DE00E6073C /* Wikipedia */,
 				D801C8501EB8E131001FA294 /* Localizations */,
 				BC8309941A7BF935003FC5C7 /* Tests */,
