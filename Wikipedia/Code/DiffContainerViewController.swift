@@ -119,6 +119,7 @@ class DiffContainerViewController: ViewController {
         self.needsSetNavDelegate = needsSetNavDelegate
         
         super.init()
+        self.accessibilityElements = [diffHeaderView, headerExtendedView, diffToolbarView]
         self.isAccessibilityElement = false
         self.theme = theme
         
