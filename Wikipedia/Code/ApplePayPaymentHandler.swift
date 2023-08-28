@@ -109,6 +109,9 @@ extension ApplePayPaymentHandler: PKPaymentAuthorizationControllerDelegate {
     func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         
         // TODO: Validate
+        // Min/Max
+        // Contact name / email
+        
         guard !payment.token.paymentData.isEmpty,
         let token = String(data: payment.token.paymentData, encoding: .utf8) else {
             paymentStatus = .failure
@@ -123,9 +126,30 @@ extension ApplePayPaymentHandler: PKPaymentAuthorizationControllerDelegate {
         print(emailAddressForCiviCRM)
         print(nameForCiviCRM)
         
+        // Contact name highlighting validation example
+//        if payment.shippingContact?.name?.givenName == "Dad" {
+//            let error = PKPaymentRequest.paymentContactInvalidError(withContactField: .name, localizedDescription: "`Dad` is not an allowed contact name.")
+//            completion(PKPaymentAuthorizationResult(status: .failure, errors: [error]))
+//            return
+//        }
+        
         // TODO: Post payment & metadata, handle errors
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0, execute: {
+            
+            // todo: display server-side validation errors in payment sheet fields, fallback to generic error / display errors in donation form.
+            
+            // State field highlighting validation example
+//            if payment.billingContact?.postalAddress?.state == "TX" {
+//                let error = PKPaymentRequest.paymentBillingAddressInvalidError(withKey: "state", localizedDescription: "We do not accept payments from your state.")
+//                completion(PKPaymentAuthorizationResult(status: .failure, errors: [error]))
+//                return
+//            }
+            
+            // Generic error example
+//            completion(PKPaymentAuthorizationResult(status: .failure, errors: nil))
+//            return
+            
             self.paymentStatus = .success
             completion(PKPaymentAuthorizationResult(status: self.paymentStatus, errors: []))
             return
