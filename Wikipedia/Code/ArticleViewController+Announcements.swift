@@ -63,9 +63,3 @@ extension ArticleViewController {
         }, theme: theme)
     }
 }
-
-private extension URL {
-    var isThankYouDonationURL: Bool {
-        return self.host == "thankyou.wikipedia.org"
-    }
-}
