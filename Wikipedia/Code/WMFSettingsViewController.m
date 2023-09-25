@@ -294,7 +294,7 @@ static NSString *const WMFSettingsURLDonation = @"https://donate.wikimedia.org/?
             break;
         }
         case WMFSettingsMenuItemType_Support:
-            [self wmf_navigateToURL:[self donationURL] useSafari:YES];
+            [self wmf_navigateToURL:[self donationURL] useSafari:NO];
             break;
         case WMFSettingsMenuItemType_PrivacyPolicy:
             [self wmf_navigateToURL:[NSURL URLWithString:[WMFCommonStrings privacyPolicyURLString]]];
