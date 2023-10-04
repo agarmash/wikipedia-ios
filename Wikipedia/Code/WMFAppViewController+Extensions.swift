@@ -4,6 +4,10 @@ import SwiftUI
 import WKData
 import Components
 
+#if WMF_EXPERIMENTAL
+import WKDataMocks
+#endif
+
 extension Notification.Name {
     static let showErrorBanner = Notification.Name("WMFShowErrorBanner")
     static let showErrorBannerNSErrorKey = "nserror"
@@ -500,14 +504,20 @@ extension WMFAppViewController: CreateReadingListDelegate {
 
 extension WMFAppViewController {
     @objc func setupWKDataEnvironment() {
-        WKDataEnvironment.current.mediaWikiService = MediaWikiFetcher(session: dataStore.session, configuration: dataStore.configuration)
         
-        switch Configuration.current.environment {
-        case .staging:
+        #if WMF_STAGING
+            WKDataEnvironment.current.mediaWikiService = MediaWikiFetcher(session: dataStore.session, configuration: dataStore.configuration)
             WKDataEnvironment.current.serviceEnvironment = .staging
-        default:
+        #elseif WMF_EXPERIMENTAL
             WKDataEnvironment.current.serviceEnvironment = .production
-        }
+        
+            // Mock WKData services if needed
+            WKDataEnvironment.current.mediaWikiService = WKMockWatchlistMediaWikiService()
+            WKDataEnvironment.current.basicService = WKMockBasicService()
+        #else
+            WKDataEnvironment.current.mediaWikiService = MediaWikiFetcher(session: dataStore.session, configuration: dataStore.configuration)
+            WKDataEnvironment.current.serviceEnvironment = .production
+        #endif
         
         WKDataEnvironment.current.sharedCacheStore = SharedContainerCacheStore()
         
