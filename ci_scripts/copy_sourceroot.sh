@@ -6,10 +6,10 @@ set -e
  
 if [[ ${CI_XCODEBUILD_ACTION} == "build-for-testing" ]]; then
     cd ../WikipediaUnitTests/
-    SOURCEROOT="${CI_WORKSPACE}/ci_scripts"
+    SOURCEROOT="${CI_PRIMARY_REPOSITORY}/ci_scripts"
     plutil -replace SOURCE_ROOT_DIR -string $SOURCEROOT Info.plist
     plutil -p Info.plist
-    echo "CI_WORKSPACE value successfully copied into Info.plist SOURCE_ROOT_DIR key."
+    echo "CI_PRIMARY_REPOSITORY value successfully copied into Info.plist SOURCE_ROOT_DIR key."
     exit 0
 else
     echo "Did not execute copy source root."
