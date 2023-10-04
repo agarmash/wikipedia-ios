@@ -1,8 +1,6 @@
 import Foundation
 import WKData
 
-#if DEBUG
-
 fileprivate enum WKMockError: Error {
     case unableToPullData
     case unableToDeserialize
@@ -291,5 +289,3 @@ public class WKMockWatchlistMediaWikiService: WKService {
         return nil
     }
 }
-
-#endif
