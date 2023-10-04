@@ -509,7 +509,7 @@ extension WMFAppViewController {
             WKDataEnvironment.current.mediaWikiService = MediaWikiFetcher(session: dataStore.session, configuration: dataStore.configuration)
             WKDataEnvironment.current.serviceEnvironment = .staging
         #elseif WMF_EXPERIMENTAL
-            WKDataEnvironment.current.serviceEnvironment = .production
+            WKDataEnvironment.current.serviceEnvironment = .staging
         
             // Mock WKData services if needed
             WKDataEnvironment.current.mediaWikiService = WKMockWatchlistMediaWikiService()
