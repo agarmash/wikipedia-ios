@@ -152,7 +152,7 @@ class SinglePageWebViewController: ViewController {
         }
         
         #if WMF_EXPERIMENTAL
-        if actionURL.absoluteString.contains("https://payments.wikimedia.org/index.php/Special:GatewayChooser") {
+        if actionURL.absoluteString.contains("https://payments.wikimedia.org/index.php/Special:GatewayChooser") || actionURL.absoluteString.contains("https://payments.wikimedia.org/index.php/Special:AdyenCheckoutGateway") {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.webView.load(URLRequest(url: URL(string:"https://thankyou.wikipedia.org/wiki/Thank_You/en?country=US")!))
             }
