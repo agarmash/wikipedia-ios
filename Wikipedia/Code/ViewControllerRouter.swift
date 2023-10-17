@@ -102,7 +102,7 @@ class ViewControllerRouter: NSObject {
             return presentOrPush(pageHistoryVC, with: completion)
         case .articleDiffCompare(let linkURL, let fromRevID, let toRevID):
             guard let siteURL = linkURL.wmf_site,
-              (fromRevID != nil || toRevID != nil) else {
+              fromRevID != nil || toRevID != nil else {
                 completion()
                 return false
             }
@@ -110,7 +110,7 @@ class ViewControllerRouter: NSObject {
             return presentOrPush(diffContainerVC, with: completion)
         case .articleDiffSingle(let linkURL, let fromRevID, let toRevID):
             guard let siteURL = linkURL.wmf_site,
-                (fromRevID != nil || toRevID != nil) else {
+                fromRevID != nil || toRevID != nil else {
                 completion()
                 return false
             }

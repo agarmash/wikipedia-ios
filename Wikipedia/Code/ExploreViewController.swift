@@ -157,12 +157,6 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
     @objc func userDidTapSettings() {
         settingsPresentationDelegate?.userDidTapSettings(from: self)
     }
-
-    // MARK: - Refresh
-    
-    override func refreshControlActivated() {
-        super.refreshControlActivated()
-    }
     
     open override func refresh() {
         FeedFunnel.shared.logFeedRefreshed()

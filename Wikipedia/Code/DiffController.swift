@@ -147,7 +147,7 @@ class DiffController {
             
             group.notify(queue: DispatchQueue.global(qos: .userInitiated)) {
             guard let firstResponse = firstResponse,
-                (fromResponse != nil || toResponse != nil) else {
+                fromResponse != nil || toResponse != nil else {
                     completion(.failure(DiffError.failureToPopulateModelsFromDeepLink))
                     return
             }
