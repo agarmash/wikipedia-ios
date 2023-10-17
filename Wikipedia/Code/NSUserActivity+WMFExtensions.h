@@ -23,6 +23,7 @@ extern NSString *const WMFNavigateToActivityNotification;
 + (void)wmf_makeActivityActive:(NSUserActivity *)activity;
 
 + (instancetype)wmf_contentActivityWithURL:(NSURL *)url;
++ (instancetype)wmf_placesActivityWithURL:(NSURL *)activityURL;
 
 + (instancetype)wmf_exploreViewActivity;
 + (instancetype)wmf_savedPagesViewActivity;
