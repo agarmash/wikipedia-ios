@@ -14,6 +14,9 @@ __attribute__((annotate("returns_localized_nsstring"))) static inline NSString *
 
 @implementation NSUserActivity (WMFExtensions)
 
+NSString *const WMFLatitude = @"WMFLatitude";
+NSString *const WMFLongitude = @"WMFLongitude";
+
 + (void)wmf_navigateToActivity:(NSUserActivity *)activity {
     [[NSNotificationCenter defaultCenter] postNotificationName:WMFNavigateToActivityNotification object:activity];
 }
@@ -62,15 +65,34 @@ __attribute__((annotate("returns_localized_nsstring"))) static inline NSString *
 + (instancetype)wmf_placesActivityWithURL:(NSURL *)activityURL {
     NSURLComponents *components = [NSURLComponents componentsWithURL:activityURL resolvingAgainstBaseURL:NO];
     NSURL *articleURL = nil;
+    NSString *latitudeString = nil;
+    NSString *longitudeString = nil;
     for (NSURLQueryItem *item in components.queryItems) {
         if ([item.name isEqualToString:@"WMFArticleURL"]) {
             NSString *articleURLString = item.value;
             articleURL = [NSURL URLWithString:articleURLString];
             break;
+        } else if ([item.name isEqualToString:@"latitude"]) {
+            latitudeString = item.value;
+        } else if ([item.name isEqualToString:@"longitude"]) {
+            longitudeString = item.value;
         }
     }
     NSUserActivity *activity = [self wmf_pageActivityWithName:@"Places"];
-    activity.webpageURL = articleURL;
+    
+    if (latitudeString != nil && longitudeString != nil) {
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        formatter.numberStyle = NSNumberFormatterDecimalStyle;
+        
+        NSNumber *latitudeNumber = [formatter numberFromString:latitudeString];
+        NSNumber *longitudeNumber = [formatter numberFromString:longitudeString];
+        
+        NSDictionary *coordinates = @{WMFLatitude: latitudeNumber, WMFLongitude: longitudeNumber};
+        [activity addUserInfoEntriesFromDictionary:coordinates];
+    } else if (articleURL != nil){
+        activity.webpageURL = articleURL;
+    }
+
     return activity;
 }
 
@@ -266,6 +288,14 @@ __attribute__((annotate("returns_localized_nsstring"))) static inline NSString *
 
 - (NSURL *)wmf_contentURL {
     return self.userInfo[@"WMFURL"];
+}
+
+- (NSNumber *)wmf_latitude {
+    return self.userInfo[WMFLatitude];
+}
+
+- (NSNumber *)wmf_longitude {
+    return self.userInfo[WMFLongitude];
 }
 
 + (NSURLComponents *)wmf_baseURLComponentsForActivityOfType:(WMFUserActivityType)type {
